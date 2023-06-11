@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Sofia+Sans+Condensed&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-[Aclonica];
+    }
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 95%;
+    height: 60px;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    
+}
+
+input[type="password"] {
+    padding-right: 40px;
+    position: relative;
+}
+
+input[type="password"]::-ms-reveal,
+input[type="password"]::-ms-clear {
+    display: none;
+    /* Hide the IE default show password button */
+}
+
+.passwordInput {
+    position: relative;
+    display: inline-block;
+}
+
+/* .passwordInput input {
+    width: 95%;
+    height: 60px;
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+} */
+
+.passwordToggle {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    background-color: transparent;
+    border: none;
+    color: red;
+}
+
+label {
+    padding-right: 20px;
+    margin-left: 0;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.errorContainer {
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.errorMsg {
+    color: red;
+    font-size: 16px
+}
+

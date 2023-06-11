@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Aclonica&family=Sofia+Sans+Condensed&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    @font-face {
+        font-family: Euclid Circular A;
+        src: url(../../fonts/Euclid\ Circular\ A\ Medium.ttf) format('truetype');
+    }
+}
+
+.heading{
+    font-family: 'Aclonica', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.mobile{
+    border-top: 1px solid #F2F5F9;
+    box-shadow: 13px 15px 18px rgba(86, 86, 86, 0.2);
+}
