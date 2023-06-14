@@ -63,60 +63,7 @@ const ViewMore = () => {
   }, [])
 
   return (
-    // <main className="w-full h-full">
-    //   <div className="w-full h-full flex justify-evenly  px-4">
-        
-    //        {categories.map((category, index) => {
-    //       return (
-    //         <div className="w-full h-full " key={index}>
-    //           <div className='grid grid-flow-col-dense gap-4 border-none ' >
-    //             <button 
-    //               onClick={() => handleCategorySelect(category)}
-    //               className={` text-[16px] md:text-[26px]  ${activeCategory === category ? 'border-b-[4px] border-b-[#4D5DED] text-[#4D5DED]  leading-[40.58px] ' : 'border-b-[4px] border-b-[#EDEFFD]  text-[#54555B]'}`}
-    //             >
-    //               {category}
-    //             </button>
-               
-    //           </div>
-        
-       
-
-    //           {/* Render products only for the active category */}
-    //           <div className='' >
-    //           {activeCategory === category && 
-    //             products
-    //               .filter((product) => product.category === category)
-    //               .map((product) => (
-    //                 <div key={product.id} className="">
-    //                   {/* Render product details */}
-    //                   <div className="relative">
-    //                     <img
-    //                       className="w-[328px] h-[328px] mt-[30px] rounded-[12px]"
-    //                       src={product.images[0]}
-    //                       alt={product.title}
-    //                     />
-    //                     <div className="absolute bg-[#EDEFFD] flex items-center justify-center w-[32px] h-[32px] rounded-[40px] top-[16px] right-[25px] cursor-pointer">
-    //                       <BiBookmark size={24} className="text-[#4D5DED]" />
-    //                     </div>
-    //                   </div>
-
-    //                   <h3 className="text-[#2F3035] text-[20px] font-medium leading-[25.36px] pt-[10px]">
-    //                     {product.title}
-    //                   </h3>
-    //                   <p className="w-[216px] h-full text-[16px] font-normal text-[#54555B] mt-[2px] leading-[20px]">
-    //                     {product.description}
-    //                   </p>
-    //                   <p className="pt-[5px] text-[#54555B] text-[16px] leading-[20px] font-normal">
-    //                     ${product.price} per year
-    //                   </p>
-    //                 </div>
-    //               ))}
-    //             </div>  
-    //         </div>
-    //       );
-    //     })}
-    //   </div>
-    // </main>
+   
 
 
     <main className="w-full h-full">
