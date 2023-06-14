@@ -44,7 +44,7 @@ export default function HomeLanding() {
       <div className='w-full h-full'>
         {categories.map((category, index) => {
           const categoryProducts = products.filter((product) => product.category === category);
-          const displayedProducts = categoryProducts.slice(0, window.innerWidth >= 768 ? 4 : 2);
+          const displayedProducts = categoryProducts.slice(0, window.innerWidth >= 768 ? 3 : 2);
 
           return (
             <div className='w-full h-full flex flex-col items-center text-left font-EuclidCircularA ' key={index}>
@@ -56,7 +56,7 @@ export default function HomeLanding() {
                 {displayedProducts.map((product) => (
                 <div key={product.id} >
                   
-                    <div className='relative  '>
+                    <div className='relative'>
                     <img className='w-[302px] h-[302px] mt-[30px] rounded-[12px]' src={product.images[0]} alt={product.title} />
                     <div className='absolute bg-[#EDEFFD] flex items-center justify-center w-[32px] h-[32px] rounded-[40px] top-[16px] right-[25px] cursor-pointer'>
                       <BiBookmark size={24} className='text-[#4D5DED]' />

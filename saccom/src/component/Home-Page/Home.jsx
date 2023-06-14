@@ -1,7 +1,8 @@
 import Navbar from "../Navbar/navbar"
 import search from '../../assets/HomeImageSlider/search.png'
 import ImageSlider from "./ImageSlider/imageSlider"
-import HomeLanding from "./Products-Page/HomeLandingPage/HomeLanding"
+// import HomeLanding from "./Products-Page/HomeLandingPage/HomeLanding"
+import ViewMore from "./Products-Page/ViewMorePage/ViewMore"
 
 const Home = () => {
   return (
@@ -16,7 +17,8 @@ const Home = () => {
         </div>
         </div>
         <ImageSlider />
-        <HomeLanding />
+        {/* <HomeLanding /> */}
+        <ViewMore />
     </main>
   )
 }
