@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import {FaBars, FaTimes} from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 import person1 from './images/person 1.png'
 import person2 from './images/person 2.png'
 import aboutUs from './images/about us.png'
@@ -26,7 +27,7 @@ const Navbar = () => {
         setToggle(!toggle)
     }
   return (
-    <div className='fixed w-full h-[60px] flex items-center md:grid md:grid-cols-3 md:gap-4 px-4 bg-white z-10'>
+    <div className='fixed w-full h-[60px] flex items-center md:grid md:grid-cols-3 md:gap-4 px-4 bg-white z-20'>
         <div onClick={handleToggle} className='md:hidden z-10'>
             { toggle ? (
                 <div className='w-[32px] h-[32px] bg-[#EDEFFD] cursor-pointer flex justify-center items-center rounded-[20px]'>
@@ -57,10 +58,14 @@ const Navbar = () => {
                 <img src={love} alt="cart" className='cursor-pointer' />
                 <h1 className='pl-[7px] cursor-pointer' >Saved hostel</h1>
             </li>
-            <li className='text-[#54555B] leading-[20px] text-[16px] flex font-EuclidCircularA px-[24px] py-[16px] font-normal '>
+
+            <Link to='/cart'>
+                <li className='text-[#54555B] leading-[20px] text-[16px] flex font-EuclidCircularA px-[24px] py-[16px] font-normal '>
                 <img src={cart} alt="cart" className='cursor-pointer' />
                 <h1 className='pl-[10px] cursor-pointer' >Cart</h1>
             </li>
+            </Link>
+            
             <li className=' flex border-b-2 mt-[10px] border-b-[#D4D5DB] mx-[15px] '></li>
             <li className='text-[#54555B] leading-[20px] text-[16px] flex font-EuclidCircularA px-[24px] py-[16px] font-normal '>
                 <img src={aboutUs} alt="about" className='cursor-pointer' />

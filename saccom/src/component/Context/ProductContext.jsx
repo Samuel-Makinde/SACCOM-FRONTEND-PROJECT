@@ -10,6 +10,8 @@ const ProductProvider = ({ children }) => {
 const [loading, setLoading] = useState(false)
   const [products, setProducts] = useState([])
   const [categories, setCategory] = useState([])
+  const [cart, setCart] = useState([])
+  // const [warning, setWarning] = useState(false)
 
     const productUrl = 'https://dummyjson.com/products';
 
@@ -58,12 +60,25 @@ const handleViewMore = (category) => {
     });
   };
 
+  const addToCart = ((item) => {
+    setCart([...cart, item])
+    console.log(item, 'item added')
+  })
+   console.log(cart, 'how many items added')
+
+  const removeFromCart = ((itemId) => {
+    setCart((prev) => prev.filter((item) => item.id !== itemId))
+  })
 
   return (
     <ProductContext.Provider value={{
         products,
         categories,
-        handleViewMore
+        cart,
+        handleViewMore,
+        addToCart,
+        removeFromCart
+        
     }}>
         {children}
     </ProductContext.Provider>
