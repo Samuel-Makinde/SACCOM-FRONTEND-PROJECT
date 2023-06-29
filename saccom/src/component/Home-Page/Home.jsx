@@ -1,33 +1,35 @@
+import { useState } from "react";
+
 // import Navbar from "../Navbar/navbar"
 // import search from '../../assets/HomeImageSlider/search.png'
 // import ImageSlider from "./ImageSlider/imageSlider"
-// import HomeLanding from "./Products-Page/HomeLandingPage/HomeLanding"
-// import ViewMore from "./Products-Page/ViewMorePage/ViewMore"
-import ProductView from "./Products-Page/ProductViewPage/ProductView"
+import HomeLanding from "./Products-Page/HomeLandingPage/HomeLanding";
+import ViewMore from "./Products-Page/ViewMorePage/ViewMore";
+// import ProductView from "./Products-Page/ProductViewPage/ProductView"
+
 // import SavedProduct from "./Products-Page/SavedProductPage/SavedProduct"
 
 const Home = () => {
-  const title = 'Product Page';
-  const url = 'https://react-icons.github.io/react-icons/search?q=love'
+  // const title = 'Product Page';
+  // const url = 'https://react-icons.github.io/react-icons/search?q=love'
+  const [isViewMore, setIsViewMore] = useState(false);
+
+  const handleViewMoreClick = () => {
+    setIsViewMore(true);
+  };
 
   return (
     <main className="w-full h-full">
-        {/* <Navbar /> */}
-        {/* <div className="w-full h-full ">
-            <div className='relative flex md:hidden pt-[70px] px-[20px] w-full h-full items-center justify-center '>
-           <input type="text" className='relative w-full rounded-[40px] h-[40px] border-solid border-2 border-[#54555B] placeholder-[#B3B4BB] pl-[16px]' placeholder='Search through hostels' />
-           <div className='bg-blue-700 absolute w-[36px] h-[30px] right-0 mr-[27px] rounded-[40px] cursor-pointer'>
-            <img src={search} alt="search" className='  pt-[5px] pl-[6px]' />
-           </div>
-        </div>
-        </div> */}
-        {/* <ImageSlider /> */}
-        {/* <HomeLanding /> */}
-        {/* <ViewMore /> */}
-        {/* <SavedProduct /> */}
-        <ProductView title={title} url={url} />
-    </main>
-  )
-}
+      {/* <ImageSlider /> */}
 
-export default Home
+      {/* <ProductView title={title} url={url} /> */}
+      {isViewMore ? (
+        <ViewMore />
+      ) : (
+        <HomeLanding onViewMoreClick={handleViewMoreClick} />
+      )}
+    </main>
+  );
+};
+
+export default Home;
