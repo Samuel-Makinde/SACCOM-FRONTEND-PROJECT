@@ -1,7 +1,5 @@
- const Loading = () => {
-  return (
-    <main>Loading...</main>
-  )
-}
+const Loading = () => {
+  return <main className="font-euclid">Loading...</main>;
+};
 
-export default Loading
+export default Loading;

@@ -3,6 +3,7 @@ import { useGlobalContext } from "../../../Context/ProductContext";
 import { useCallback, useState } from "react";
 import ImageSlider from "../../ImageSlider/imageSlider";
 import search from "../../../../assets/HomeImageSlider/search.png";
+import { Link } from "react-router-dom";
 
 const ViewMore = () => {
   const { products, categories } = useGlobalContext();
@@ -19,7 +20,7 @@ const ViewMore = () => {
   }, []);
 
   return (
-    <main className="w-full h-full pt-[70px]">
+    <main className="w-full h-full pt-[70px] font-euclid">
       <div className="relative flex md:hidden  px-[20px] w-full h-full items-center justify-center ">
         <input
           type="text"
@@ -58,11 +59,14 @@ const ViewMore = () => {
               <div key={product.id} className="w-full h-full ">
                 {/* Render product details */}
                 <div className="relative w-[302px] h-[302px]  sm:w-[270px] sm:h-[270px] md:w-[302px] md:h-[302px] lg:w-[270px] lg-h[270px]">
-                  <img
-                    className="w-[302px] h-[302px] sm:w-[270px] sm:h-[270px] md:w-[300px] md:h-[300px] lg:w-[270px] lg:h-[270px]  mt-[30px] rounded-[12px]"
-                    src={product.images[0]}
-                    alt={product.title}
-                  />
+                  <Link to={`/product/${product.id}`}>
+                    <img
+                      className="w-[302px] h-[302px] sm:w-[270px] sm:h-[270px] md:w-[300px] md:h-[300px] lg:w-[270px] lg:h-[270px]  mt-[30px] rounded-[12px]"
+                      src={product.images[0]}
+                      alt={product.title}
+                    />
+                  </Link>
+
                   <div className="absolute bg-[#EDEFFD] flex items-center justify-center w-[32px] h-[32px] rounded-[40px] top-[13px] right-[20px]  cursor-pointer">
                     <BiBookmark size={24} className="text-[#4D5DED]" />
                   </div>

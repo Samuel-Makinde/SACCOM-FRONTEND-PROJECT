@@ -5,11 +5,12 @@ import Staffs from "./component/Staff Page/Staffs";
 import Footer from "./component/Footer/footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ProductProvider } from "./component/Context/ProductContext";
-// import Login from './component/Registration/login/login'
+import Login from "./component/Registration/login/login";
 import "./index.css";
 import CartPage from "./component/Home-Page/Cart-Page/CartPage";
 import SavedProduct from "./component/Home-Page/Products-Page/SavedProductPage/SavedProduct";
 import HomeLanding from "./component/Home-Page/Products-Page/HomeLandingPage/HomeLanding";
+import ProductView from "./component/Home-Page/Products-Page/ProductViewPage/ProductView";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/cart" element={<CartPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/staff" element={<Staffs />} />
+            <Route path="/product/:productId" element={<ProductView />} />
           </Routes>
           <Footer />
         </Router>

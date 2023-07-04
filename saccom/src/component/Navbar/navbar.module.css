@@ -4,12 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
+/* @layer base {
     @font-face {
         font-family: Euclid Circular A;
         src: url(../../fonts/Euclid\ Circular\ A\ Medium.ttf) format('truetype');
     }
-}
+} */
 
 .heading{
     font-family: 'Aclonica', sans-serif;

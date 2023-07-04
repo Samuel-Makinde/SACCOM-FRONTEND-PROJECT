@@ -10,6 +10,9 @@ Contain te staffs images
 StaffPage.module.css
 Contain the CSS
 
+Staffs.jsx
+contain all employee details to be display on the screen
+
 Stafss.jsx
 Contain the code for the staff page
 

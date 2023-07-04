@@ -5,7 +5,7 @@ const CartPage = () => {
   const { products, cart } = useGlobalContext();
   return (
     <main className="w-full h-full px-4 md:px-10 pt-[70px] md:pt-[100px]">
-      <div className="w-full h-full">
+      <div className="w-full h-full font-euclid">
         <h1 className="text-[#2F3035] font-semibold md:text-[48px] md:leading-[60px]">
           Review your cart{" "}
         </h1>

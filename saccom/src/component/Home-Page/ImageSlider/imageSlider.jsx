@@ -22,7 +22,7 @@ const ImageSlider = () => {
   return (
     <main className={styles.container}>
       <Slider {...settings}>
-        <div className="relative w-full h-full border-none">
+        <div className="relative w-full h-full border-none font-euclid">
           <img
             className={`rounded-[30px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
             src={hotel1}

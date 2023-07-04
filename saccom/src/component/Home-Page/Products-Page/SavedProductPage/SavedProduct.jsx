@@ -3,7 +3,7 @@ import search from "../../../../assets/HomeImageSlider/search.png";
 
 const SavedProduct = () => {
   return (
-    <main className="w-full h-full pt-[70px]">
+    <main className="w-full h-full pt-[70px] font-euclid">
       <div className="relative flex md:hidden  px-[20px] w-full h-full items-center justify-center ">
         <input
           type="text"

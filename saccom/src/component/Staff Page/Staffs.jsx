@@ -6,15 +6,15 @@ import Consultant from "./images/Consultant Image.png";
 
 const Staffs = () => {
   return (
-    <main className="w-full h-full md:overflow-hidden font-EuclidCircularA">
+    <main className="w-full h-full md:overflow-hidden font-euclid">
       {/* <Navbar /> */}
       <div className="pt-[80px]  w-full h-full">
         <div className="lg:ml-[83px] md:ml-[50px] md:grid grid-cols-2 gap-2 overflow-hidden px-4">
-          <h1 className="font-EuclidCircularA font-semibold text-[24px] leading-[30.43px] md:text-[28px] lg:w-[513px] md:w-[350px] md:h-[183px]">
+          <h1 className=" font-semibold text-[24px] leading-[30.43px] md:text-[28px] lg:w-[513px] md:w-[350px] md:h-[183px]">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi,
             beatae fugiat.
           </h1>
-          <p className="font-EuclidCircularA font-regular lg:w-[449px] mt-[25px] md:w-[350px] md:h-[80px] md:mt-[103px] md:mr-[5px] break-words leading-[20.29px] text-[#54555B] text-[16px]">
+          <p className=" font-regular lg:w-[449px] mt-[25px] md:w-[350px] md:h-[80px] md:mt-[103px] md:mr-[5px] break-words leading-[20.29px] text-[#54555B] text-[16px]">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa in sed
             adipisci officia incidunt? Ut, ex hic. Eligendi libero praesentium
             error doloremque, aut culpa, eaque veritatis impedit iure totam ab.
@@ -24,7 +24,7 @@ const Staffs = () => {
         <div className="hidden md:flex md:border-b-2 mt-[30px] md:border-b-[#D4D5DB] lg:ml-[83px] md:ml-[50px]   md:mr-[20px]"></div>
         <div className="w-full h-full bg-[#F6F7FF] px-4 mt-[60px] md:pb-[100px]  ">
           <div className="w-full h-full lg:pl-[83px] md:pl-[50px] flex flex-col items-center sm:flex-none sm:items-start">
-            <h1 className="text-[#04050C] md:leading-[60.83px] leading-[41px]   md:text-[48px] text-[32px] md:flex   font-EuclidCircularA  md:pt-[80px] font-semibold">
+            <h1 className="text-[#04050C] md:leading-[60.83px] leading-[41px]   md:text-[48px] text-[32px] md:flex    md:pt-[80px] font-semibold">
               Meet our <br /> staff team
             </h1>
 
@@ -52,7 +52,7 @@ const Staffs = () => {
           <div className="hidden md:flex md:border-b-2 mt-[70px] md:border-b-[#D4D5DB] lg:ml-[83px] md:ml-[50px]  md:mr-[20px]"></div>
 
           <div className="md:flex justify-between lg:ml-[83px] md:ml-[50px] mt-[80px] md:mt-[50px]">
-            <h1 className="font-EuclidCircularA font-semibold md:text-[48px] text-[24px] leading-[30px] md:leading-[50px] text-[#04050C]">
+            <h1 className=" font-semibold md:text-[48px] text-[24px] leading-[30px] md:leading-[50px] text-[#04050C]">
               Want to work for us?
             </h1>
             <div className="pt-[20px] md:pt-0">
@@ -62,7 +62,7 @@ const Staffs = () => {
                 who embody out company values.
               </p>
               <div className="text-[#4D5DED] flex mt-[30px] w-full ">
-                <p className="font-EuclidCircularA font-normal text-[16px] underline underline-offset-4 cursor-pointer mb-[50px] md:mb-0">
+                <p className=" font-normal text-[16px] underline underline-offset-4 cursor-pointer mb-[50px] md:mb-0">
                   See open positions
                 </p>
                 <BsArrowUpRight className="ml-[20px]" />
@@ -73,10 +73,10 @@ const Staffs = () => {
 
         <div className="w-full h-[650px] bg-[#04050C] flex flex-col-reverse md:flex-row justify-between">
           <div className="w-full md:w-[510px] px-[15px] lg:ml-[83px] md:ml-[50px] pt-[15px] md:pt-[40px]">
-            <h1 className="text-[#FFFFFF] md:text-[38px] text-[24px] lg:text-[48px] leading-[30.43px] md:leading-[61px]   font-EuclidCircularA font-normal">
+            <h1 className="text-[#FFFFFF] md:text-[38px] text-[24px] lg:text-[48px] leading-[30.43px] md:leading-[61px]    font-normal">
               Have a queston? <br /> Our team is happy <br /> to assist you
             </h1>
-            <p className="text-[#B3B4BB] w-[300px] text-[16px] font-EuclidCircularA font-normal leading-[20.29px] pt-[30px]">
+            <p className="text-[#B3B4BB] w-[300px] text-[16px]  font-normal leading-[20.29px] pt-[30px]">
               Ask about hostels around UNILAG, inspection process, pricing,
               implementation, or anything else concerning SACCOM. Our highly
               trained reps are standing by, ready to help.

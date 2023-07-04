@@ -11,7 +11,7 @@ const Footer = () => {
         <Backtotop />
       </div>
       <div className="hidden border-b-[1px]  border-b-[#D4D5DB] md:flex md:border-b-2    border-[1px] "></div>
-      <div className="bg-[#FFFFFF] md:grid   md:grid-cols-4 md:gap-x-1 font-EuclidCircularA font-normal w-full h-[450px] md:h-[150px] text-black pt-[35px]">
+      <div className="bg-[#FFFFFF] md:grid   md:grid-cols-4 md:gap-x-1 font-euclid font-normal w-full h-[450px] md:h-[150px] text-black pt-[35px]">
         <div className="pl-[15px] w-full lg:pl-[83px] md:pl-[20px] md:flex md:w-1/4">
           <div>
             <h1 className={`${styles.header} text-[32px] leading-[36.27px]`}>

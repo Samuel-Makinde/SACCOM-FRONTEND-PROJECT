@@ -5,13 +5,13 @@ import { useState } from "react";
 // import ImageSlider from "./ImageSlider/imageSlider"
 import HomeLanding from "./Products-Page/HomeLandingPage/HomeLanding";
 import ViewMore from "./Products-Page/ViewMorePage/ViewMore";
-// import ProductView from "./Products-Page/ProductViewPage/ProductView"
+// import ProductView from "./Products-Page/ProductViewPage/ProductView";
 
 // import SavedProduct from "./Products-Page/SavedProductPage/SavedProduct"
 
 const Home = () => {
-  // const title = 'Product Page';
-  // const url = 'https://react-icons.github.io/react-icons/search?q=love'
+  // const title = "Product Page";
+  // const url = "https://react-icons.github.io/react-icons/search?q=love";
   const [isViewMore, setIsViewMore] = useState(false);
 
   const handleViewMoreClick = () => {

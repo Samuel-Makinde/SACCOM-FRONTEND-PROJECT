@@ -80,7 +80,7 @@ export default function HomeLanding({ onViewMoreClick }) {
     //   </div>
     // </main>
 
-    <main className="w-full h-full pt-[70px]">
+    <main className="w-full h-full pt-[70px] font-euclid">
       <div className="relative flex md:hidden  px-[20px] w-full h-full items-center justify-center ">
         <input
           type="text"
@@ -119,7 +119,7 @@ export default function HomeLanding({ onViewMoreClick }) {
                   <div key={product.id}>
                     <div className="relative">
                       <img
-                        className="w-[302px] h-[302px] mt-[30px] rounded-[12px]"
+                        className="w-[302px] h-[202px] mt-[25px] rounded-[12px]"
                         src={product.images[0]}
                         alt={product.title}
                       />
@@ -199,7 +199,7 @@ export default function HomeLanding({ onViewMoreClick }) {
 
               <div className="w-full h-full">
                 <button
-                  className="text-[#4D5DED] leading-[20px] font-normal w-full h-full text-[16px] mt-[40px] flex  justify-end mr-[30px] "
+                  className="text-[#4D5DED] leading-[20px] font-normal w-full h-full text-[16px] mt-[20px] flex  justify-end mr-[30px] "
                   // onClick={() => handleViewMore(category)}
                   onClick={handleViewMoreClick}
                 >

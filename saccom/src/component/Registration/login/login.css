@@ -20,7 +20,7 @@ input[type="password"] {
     
 }
 
-input[type="password"] {
+/* input[type="password"] {
     padding-right: 40px;
     position: relative;
 }
@@ -29,12 +29,12 @@ input[type="password"]::-ms-reveal,
 input[type="password"]::-ms-clear {
     display: none;
     /* Hide the IE default show password button */
-}
 
-.passwordInput {
+
+/* .passwordInput {
     position: relative;
     display: inline-block;
-}
+} */
 
 /* .passwordInput input {
     width: 95%;
