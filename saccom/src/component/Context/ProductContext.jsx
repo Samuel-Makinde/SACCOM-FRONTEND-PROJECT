@@ -65,7 +65,6 @@ const ProductProvider = ({ children }) => {
     setCart([...cart, item]);
     console.log(item, "item added");
   };
-  console.log(cart, "how many items added");
 
   const removeFromCart = (itemId) => {
     setCart((prev) => prev.filter((item) => item.id !== itemId));

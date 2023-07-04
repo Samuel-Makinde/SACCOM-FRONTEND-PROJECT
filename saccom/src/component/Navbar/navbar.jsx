@@ -31,7 +31,7 @@ const Navbar = () => {
     setToggle(!toggle);
   };
   return (
-    <div className="fixed w-full h-[60px] flex items-center md:grid md:grid-cols-3 md:gap-4 px-4 bg-white z-20 font-euclid">
+    <div className="fixed w-full h-[60px] md:h-[90px] flex items-center md:grid md:grid-cols-3 md:gap-4 px-4 bg-white z-20 font-euclid">
       <div onClick={handleToggle} className="md:hidden z-10">
         {toggle ? (
           <div className="w-[32px] h-[32px] bg-[#EDEFFD] cursor-pointer flex justify-center items-center rounded-[20px]">
