@@ -53,7 +53,7 @@ const Navbar = () => {
       <ul
         className={`${
           toggle ? "block" : "hidden"
-        } w-3/4 bg-white absolute top-0 left-0 h-screen md:hidden flex flex-col justify-center   ${
+        } w-3/4 bg-white absolute top-0 left-0 h-screen md:hidden flex flex-col  pt-[100px]   ${
           styles.mobile
         }`}
       >
@@ -96,10 +96,10 @@ const Navbar = () => {
           </li>
         </Link>
 
-        <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
+        {/* <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
           <img src={contacts} alt="contact" className="cursor-pointer" />
           <h1 className="pl-[10px] cursor-pointer">Contact us</h1>
-        </li>
+        </li> */}
 
         <Link to="/staff">
           <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
@@ -188,14 +188,14 @@ const Navbar = () => {
                     </li>
                   </Link>
 
-                  <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
+                  {/* <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
                     <img
                       src={contacts}
                       alt="contact"
                       className="cursor-pointer"
                     />
                     <h1 className="pl-[10px] cursor-pointer">Contact us</h1>
-                  </li>
+                  </li> */}
 
                   <Link to="/staff">
                     <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">

@@ -7,16 +7,19 @@ import { IoIosArrowBack } from "react-icons/io";
 import PropTypes from "prop-types";
 import { useWindowSize } from "react-use";
 import { useParams } from "react-router-dom";
+// import {Ma} from "react-mailto";
 
-const ProductView = ({ title, url }) => {
-  const { products, addToCart } = useGlobalContext();
+const ProductView = () => {
+  const { products, addToCart, addToSave } = useGlobalContext();
   const { width } = useWindowSize();
 
   const { productId } = useParams();
   const product = products.find(
     (product) => product.id === parseInt(productId)
   );
-  console.log("Product id is working", product);
+
+  const title = "Product Description Page";
+  const url = window.location.href;
 
   // to share page on supported browser
   const ShareProductDescription = async () => {
@@ -31,7 +34,15 @@ const ProductView = ({ title, url }) => {
         console.log("error sharing: ", error);
       }
     } else {
-      console.log("web share api not supported");
+      // fall back option for browser not supporting web share api
+      const Subject = title;
+      const body = url;
+
+      const fallBackOption = `mailto:?subject=${encodeURIComponent(
+        Subject
+      )}&body=${encodeURIComponent(body)}`;
+
+      window.open(fallBackOption, "_blank");
     }
   };
 
@@ -90,7 +101,10 @@ const ProductView = ({ title, url }) => {
                       )}
                       <p className="hidden md:flex ml-[10px]  ">Share</p>
                     </div>
-                    <div className="flex cursor-pointer">
+                    <div
+                      onClick={() => addToSave(product)}
+                      className="flex cursor-pointer"
+                    >
                       {width >= 768 ? (
                         <div>
                           <BiBookmark size={20} className="w-[24px] h-[24px]" />

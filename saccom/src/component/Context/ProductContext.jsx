@@ -12,7 +12,7 @@ const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [categories, setCategory] = useState([]);
   const [cart, setCart] = useState([]);
-  // const [warning, setWarning] = useState(false)
+  const [savedProduct, setSavedProduct] = useState([]);
 
   const productUrl = "https://dummyjson.com/products";
 
@@ -70,15 +70,22 @@ const ProductProvider = ({ children }) => {
     setCart((prev) => prev.filter((item) => item.id !== itemId));
   };
 
+  const addToSave = (item) => {
+    setSavedProduct([...savedProduct, item]);
+    console.log(item, "item saved");
+  };
+
   return (
     <ProductContext.Provider
       value={{
         products,
         categories,
         cart,
+        savedProduct,
         handleViewMore,
         addToCart,
         removeFromCart,
+        addToSave,
       }}
     >
       {children}
