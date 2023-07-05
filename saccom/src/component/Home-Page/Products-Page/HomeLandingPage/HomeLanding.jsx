@@ -26,7 +26,7 @@ export default function HomeLanding({ onViewMoreClick }) {
         </div>
       </div>
       <ImageSlider />
-      <div className="w-full h-full md:px-10 ">
+      <div className="w-full h-full px-10 ">
         {categories.map((category, index) => {
           const categoryProducts = products.filter(
             (product) => product.category === category
