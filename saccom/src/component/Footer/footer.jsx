@@ -3,6 +3,7 @@ import { AiOutlineInstagram } from "react-icons/ai";
 import { FiTwitter } from "react-icons/fi";
 import { RiLinkedinLine } from "react-icons/ri";
 import Backtotop from "../Back-to-top/backtotop";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -39,12 +40,18 @@ const Footer = () => {
         </div>
 
         <ul className="text-[#2F3035] pl-[15px] md:pl-0 md:flex text-[12px] leading-[15.2px] ">
-          <li className="pt-[25px]  md:pt-0 cursor-pointer w-[100px] md:w-[70px] ">
-            About us
-          </li>
-          <li className="pt-[25px] md:pt-0 cursor-pointer w-[100px] md:w-[70px] ">
-            Staffs
-          </li>
+          <Link to="/about">
+            <li className="mt-[25px]  md:pt-0 cursor-pointer w-[100px] md:w-[70px] ">
+              About us
+            </li>
+          </Link>
+
+          <Link to="/staff">
+            <li className="mt-[25px] md:pt-0 cursor-pointer w-[100px] md:w-[70px] ">
+              Staffs
+            </li>
+          </Link>
+
           <li className="pt-[25px]  md:pt-0 cursor-pointer w-[100px] md:w-[70px]">
             Terms
           </li>
