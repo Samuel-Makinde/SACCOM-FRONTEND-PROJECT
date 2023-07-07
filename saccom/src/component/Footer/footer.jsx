@@ -52,10 +52,10 @@ const Footer = () => {
             </li>
           </Link>
 
-          <li className="pt-[25px]  md:pt-0 cursor-pointer w-[100px] md:w-[70px]">
+          <li className="mt-[25px]  md:pt-0 cursor-pointer w-[100px] md:w-[70px]">
             Terms
           </li>
-          <li className="pt-[25px] md:pt-0 cursor-pointer w-[100px] md:w-[100px]">
+          <li className="mt-[25px] md:pt-0 cursor-pointer w-[100px] md:w-[100px]">
             Privacy policies
           </li>
           <div className="hidden lg:ml-[40px] md:ml-[30px]  border-l-[#D4D5DB] md:flex md:border-l-2 h-[75px]"></div>

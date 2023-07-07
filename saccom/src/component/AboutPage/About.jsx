@@ -1,6 +1,8 @@
 import image1 from "./images/8+.png";
 import image2 from "./images/3+.png";
 import image3 from "./images/10k (1).png";
+import image4 from "./images/Goals illustration 1.png";
+import image5 from "./images/Target illustration 1.png";
 // import Navbar from '../Navbar/navbar';
 // import Backtotop from '../Back-to-top/backtotop';
 // import {Link} from 'react-scroll'
@@ -23,7 +25,7 @@ const About = () => {
         </div>
         <div className="hidden md:flex md:border-b-4 mt-[30px] md:border-b-[#D4D5DB] lg:ml-[83px] md:ml-[50px] border-[2px] md:mr-[5px]"></div>
 
-        <div className="w-full h-full flex flex-col-reverse md:flex-none md:grid md:grid-cols-2 md:gap-4">
+        <div className="w-full h-[400px] flex flex-col-reverse md:flex-none md:grid md:grid-cols-2 md:gap-4">
           <div>
             <h1 className="md:mt-[70px] lg:ml-[83px] md:ml-[50px]  font-semibold text-[24px] text-[#2F3035] md:text-[48px] md:w-[369px] md:h-[61px]  md:leading-[60.86px]">
               Our Mission
@@ -36,14 +38,23 @@ const About = () => {
             </p>
           </div>
 
-          <div className="mt-[40px]  ">
-            <p>quality image here</p>
+          <div className="mt-[40px] w-full h-full  ">
+            <img
+              className="w-full md:h-[400px] h-[273px] "
+              src={image4}
+              alt="aboutme"
+            />
           </div>
         </div>
 
         <div className="w-full h-full md:grid md:grid-cols-2 md:gap-4">
-          <div className="md:mt-[70px] mt-[50px] lg:ml-[83px] md:ml-[50px]">
-            <p>quality image present</p>
+          <div className="w-full h-full md:mt-[70px] mt-[50px] md:mr-[5px] lg:ml-[83px] md:ml-[30px]">
+            {/* <p>quality image present</p> */}
+            <img
+              className="w-full  h-[273px] md:h-[400px] "
+              src={image5}
+              alt="aboutme"
+            />
           </div>
           <div className="md:mt-[120px]">
             <h1 className="text-[#2F3035] text-[24px] mt-[20px] md:mt-0  font-semibold md:text-[48px] md:leading-[60.86px] md:w-[336px] md:h-[61px]">
@@ -62,7 +73,7 @@ const About = () => {
 
         <div className="mt-[40px] md:grid md:grid-cols-3 gap-4 md:mt-[70px] lg:ml-[83px]  md:ml-[50px]">
           <div className="flex flex-col justify-center items-center md:mt-0 mt-[20px] ">
-            <p className="md:h-[160px] lg:h-[110px] text-[16px] w-[328px]  text-[#85868D]">
+            <p className="md:h-[160px] lg:h-[110px] text-[16px]   text-[#85868D]">
               <span className="pl-[7px]">
                 {" "}
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.{" "}

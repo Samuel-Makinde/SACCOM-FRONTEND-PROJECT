@@ -71,7 +71,7 @@ const Staffs = () => {
           </div>
         </div>
 
-        <div className="w-full h-[650px] bg-[#04050C] flex flex-col-reverse md:flex-row justify-between">
+        <div className="w-full h-[750px] md:h-[650px] bg-[#04050C] flex flex-col-reverse md:flex-row justify-between">
           <div className="w-full md:w-[510px] px-[15px] lg:ml-[83px] md:ml-[50px] pt-[15px] md:pt-[40px]">
             <h1 className="text-[#FFFFFF] md:text-[38px] text-[24px] lg:text-[48px] leading-[30.43px] md:leading-[61px]    font-normal">
               Have a queston? <br /> Our team is happy <br /> to assist you
@@ -95,8 +95,8 @@ const Staffs = () => {
           </div>
 
           <div className="w-[380px] h-full">
-            <div className="bg-[#7E4BCF] md:w-[200px] w-[181px] h-[160px] md:rounded-[24px] rounded-r-[24px] relative z-0 md:h-[227px] mt-[10px]  md:mt-[30px]">
-              <div className="absolute  flex justify-center top-[40px] left-[40px]  bg-[#EDEFFD] h-[220px]  w-[380px] md:h-[350px] rounded-[24px] md:rounded-l-[24px]">
+            <div className="bg-[#7E4BCF] md:w-[200px] w-[180px] h-[160px] md:rounded-[24px] rounded-r-[24px] relative z-0 md:h-[227px] mt-[10px]  md:mt-[30px]">
+              <div className="absolute  flex justify-center top-[40px] left-[40px]  bg-[#EDEFFD] h-[220px] w-[300px]  md:w-[380px] md:h-[350px] rounded-[24px] md:rounded-l-[24px]">
                 <img
                   className="h-[240px] md:h-[370px] -m-[20px]"
                   src={Consultant}
