@@ -34,12 +34,12 @@ const ViewMore = () => {
       <ImageSlider />
       <div className="w-full h-full flex flex-col items-center md:justify-evenly px-4">
         <div className="w-full h-full overflow-x-auto">
-          <div className="grid grid-flow-col-dense gap-4 border-none flex-nowrap">
+          <div className="w-full h-full grid grid-flow-col-dense gap-4 border-none flex-nowrap whitespace-nowrap">
             {categories.map((category, index) => (
               <button
                 key={index}
                 onClick={() => handleCategorySelect(category)}
-                className={`text-[16px] md:text-[26px] ${
+                className={`text-[16px] w-full h-full md:text-[26px] ${
                   activeCategory === category
                     ? "border-b-[4px] border-b-[#4D5DED] text-[#4D5DED] leading-[40.58px]"
                     : "  text-[#54555B]"

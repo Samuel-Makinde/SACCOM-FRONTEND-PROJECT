@@ -58,7 +58,7 @@ export default function HomeLanding({ onViewMoreClick }) {
                     <div key={product.id}>
                       <div className="relative">
                         <img
-                          className="w-[302px] h-[202px] mt-[25px] rounded-[12px]"
+                          className="w-[302px] h-[302px] md:h-[202px] mt-[25px] rounded-[12px]"
                           src={product.images[0]}
                           alt={product.title}
                         />
