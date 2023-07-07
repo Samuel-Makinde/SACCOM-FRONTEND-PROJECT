@@ -39,13 +39,13 @@ const ProductProvider = ({ children }) => {
     FetchApi();
   }, [FetchApi]);
 
-  if (loading) {
-    return (
-      <main>
-        <Loading />
-      </main>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <main>
+  //       <Loading />
+  //     </main>
+  //   );
+  // }
 
   const handleViewMore = (category) => {
     setProducts((prevProducts) => {
@@ -81,6 +81,7 @@ const ProductProvider = ({ children }) => {
         products,
         categories,
         cart,
+        loading,
         savedProduct,
         handleViewMore,
         addToCart,

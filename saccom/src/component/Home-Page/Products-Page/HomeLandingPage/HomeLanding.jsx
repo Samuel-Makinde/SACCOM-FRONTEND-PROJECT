@@ -4,11 +4,12 @@ import { useGlobalContext } from "../../../Context/ProductContext";
 import ImageSlider from "../../ImageSlider/imageSlider";
 import PropTypes from "prop-types";
 import search from "../../../../assets/HomeImageSlider/search.png";
+import Loading from "../../LoadingSpinner/loading";
 
 // import { useState } from "react";
 
 export default function HomeLanding({ onViewMoreClick }) {
-  const { products, categories } = useGlobalContext();
+  const { products, categories, loading } = useGlobalContext();
   const handleViewMoreClick = () => {
     onViewMoreClick(); // Call the parent component's onViewMoreClick function
   };
@@ -26,73 +27,78 @@ export default function HomeLanding({ onViewMoreClick }) {
         </div>
       </div>
       <ImageSlider />
-      <div className="w-full h-full px-10 ">
-        {categories.map((category, index) => {
-          const categoryProducts = products.filter(
-            (product) => product.category === category
-          );
 
-          const displayedProducts = categoryProducts.slice(
-            0,
-            document.documentElement.clientWidth >= 1024 ? 4 : 3
-          );
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className="w-full h-full px-10 ">
+          {categories.map((category, index) => {
+            const categoryProducts = products.filter(
+              (product) => product.category === category
+            );
 
-          return (
-            <div
-              className="w-full h-full flex flex-col items-center text-left  "
-              key={index}
-            >
-              <div className="w-full h-full flex ml-[60px] text-center ">
-                <h2 className="text-[#2F3035] text-[20px]  font-medium leading-[25.36px] pt-[60px]  w-full h-full">
-                  {category}
-                </h2>
-              </div>
-              {/* md:flex justify-evenly md:w-full md:h-full */}
-              <div className="md:grid md:grid-cols-3 lg:grid-cols-4 gap-4 ">
-                {displayedProducts.map((product) => (
-                  <div key={product.id}>
-                    <div className="relative">
-                      <img
-                        className="w-[302px] h-[202px] mt-[25px] rounded-[12px]"
-                        src={product.images[0]}
-                        alt={product.title}
-                      />
-                      <div className="absolute bg-[#EDEFFD] flex items-center justify-center w-[32px] h-[32px] rounded-[40px] top-[16px] right-[25px] cursor-pointer">
-                        <BiBookmark size={24} className="text-[#4D5DED]" />
+            const displayedProducts = categoryProducts.slice(
+              0,
+              document.documentElement.clientWidth >= 1024 ? 4 : 3
+            );
+
+            return (
+              <div
+                className="w-full h-full flex flex-col items-center text-left  "
+                key={index}
+              >
+                <div className="w-full h-full flex ml-[60px] text-center ">
+                  <h2 className="text-[#2F3035] text-[20px]  font-medium leading-[25.36px] pt-[60px]  w-full h-full">
+                    {category}
+                  </h2>
+                </div>
+                {/* md:flex justify-evenly md:w-full md:h-full */}
+                <div className="md:grid md:grid-cols-3 lg:grid-cols-4 gap-4 ">
+                  {displayedProducts.map((product) => (
+                    <div key={product.id}>
+                      <div className="relative">
+                        <img
+                          className="w-[302px] h-[202px] mt-[25px] rounded-[12px]"
+                          src={product.images[0]}
+                          alt={product.title}
+                        />
+                        <div className="absolute bg-[#EDEFFD] flex items-center justify-center w-[32px] h-[32px] rounded-[40px] top-[16px] right-[25px] cursor-pointer">
+                          <BiBookmark size={24} className="text-[#4D5DED]" />
+                        </div>
+                      </div>
+
+                      <div>
+                        <h3 className="text-[#2F3035] text-[20px] font-medium leading-[25.36px]  pt-[10px]">
+                          {product.title}
+                        </h3>
+                        <p className="w-[216px] h-full text-[16px] font-normal text-[#54555B] mt-[2px] leading-[20px]">
+                          {product.description}
+                        </p>
+                        <p className="pt-[5px] text-[#54555B] text-[16px] leading-[20px] font-normal">
+                          ${product.price} per year
+                        </p>
                       </div>
                     </div>
-
-                    <div>
-                      <h3 className="text-[#2F3035] text-[20px] font-medium leading-[25.36px]  pt-[10px]">
-                        {product.title}
-                      </h3>
-                      <p className="w-[216px] h-full text-[16px] font-normal text-[#54555B] mt-[2px] leading-[20px]">
-                        {product.description}
-                      </p>
-                      <p className="pt-[5px] text-[#54555B] text-[16px] leading-[20px] font-normal">
-                        ${product.price} per year
-                      </p>
+                  ))}
+                </div>
+                <div className="w-full h-full">
+                  <button
+                    className="text-[#4D5DED] leading-[20px] font-normal w-full h-full text-[16px] mt-[20px] flex  justify-end mr-[30px] "
+                    // onClick={() => handleViewMore(category)}
+                    onClick={handleViewMoreClick}
+                  >
+                    <div className=" w-[120px] h-full top-0 right-[15px] flex  ">
+                      <p>View More</p>{" "}
+                      <BsArrowRight className="mt-[4px] ml-[8px]" />
                     </div>
-                  </div>
-                ))}
+                  </button>
+                  <div className=" border-b-[1px] border-b-[#AAB0B766] rounded-[4px]  mt-[30px] ml-[20px] border-[2px] mr-[20px]"></div>
+                </div>
               </div>
-              <div className="w-full h-full">
-                <button
-                  className="text-[#4D5DED] leading-[20px] font-normal w-full h-full text-[16px] mt-[20px] flex  justify-end mr-[30px] "
-                  // onClick={() => handleViewMore(category)}
-                  onClick={handleViewMoreClick}
-                >
-                  <div className=" w-[120px] h-full top-0 right-[15px] flex  ">
-                    <p>View More</p>{" "}
-                    <BsArrowRight className="mt-[4px] ml-[8px]" />
-                  </div>
-                </button>
-                <div className=" border-b-[1px] border-b-[#AAB0B766] rounded-[4px]  mt-[30px] ml-[20px] border-[2px] mr-[20px]"></div>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+            );
+          })}
+        </div>
+      )}
     </main>
   );
 }

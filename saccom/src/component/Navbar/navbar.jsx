@@ -5,7 +5,6 @@ import { AiOutlineHome } from "react-icons/ai";
 import person1 from "./images/person 1.png";
 import person2 from "./images/person 2.png";
 import aboutUs from "./images/about us.png";
-import contacts from "./images/contact.png";
 import staffs from "./images/staffs.png";
 import styles from "./navbar.module.css";
 import love from "./images/love.png";

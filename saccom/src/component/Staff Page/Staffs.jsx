@@ -9,7 +9,7 @@ const Staffs = () => {
     <main className="w-full h-full md:overflow-hidden font-euclid">
       {/* <Navbar /> */}
       <div className="pt-[80px]  w-full h-full">
-        <div className="lg:ml-[83px] md:ml-[50px] md:grid grid-cols-2 gap-2 overflow-hidden px-4">
+        <div className="lg:ml-[83px] md:ml-[50px] md:grid grid-cols-2 gap-2 px-4">
           <h1 className=" font-semibold text-[24px] leading-[30.43px] md:text-[28px] lg:w-[513px] md:w-[350px] md:h-[183px]">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi,
             beatae fugiat.
@@ -94,7 +94,7 @@ const Staffs = () => {
             </div>
           </div>
 
-          <div className="w-[380px] h-full">
+          <div className="w-full md:w-[380px] h-full">
             <div className="bg-[#7E4BCF] md:w-[200px] w-[180px] h-[160px] md:rounded-[24px] rounded-r-[24px] relative z-0 md:h-[227px] mt-[10px]  md:mt-[30px]">
               <div className="absolute  flex justify-center top-[40px] left-[40px]  bg-[#EDEFFD] h-[220px] w-[300px]  md:w-[380px] md:h-[350px] rounded-[24px] md:rounded-l-[24px]">
                 <img
