@@ -5,11 +5,12 @@ import ImageSlider from "../../ImageSlider/imageSlider";
 import PropTypes from "prop-types";
 import search from "../../../../assets/HomeImageSlider/search.png";
 import Loading from "../../LoadingSpinner/loading";
+import { Link } from "react-router-dom";
 
 // import { useState } from "react";
 
 export default function HomeLanding({ onViewMoreClick }) {
-  const { products, categories, loading } = useGlobalContext();
+  const { products, categories, loading, addToSave } = useGlobalContext();
   const handleViewMoreClick = () => {
     onViewMoreClick(); // Call the parent component's onViewMoreClick function
   };
@@ -31,7 +32,7 @@ export default function HomeLanding({ onViewMoreClick }) {
       {loading ? (
         <Loading />
       ) : (
-        <div className="w-full h-full px-10 ">
+        <div className="w-full h-full px-4 md:px-10 ">
           {categories.map((category, index) => {
             const categoryProducts = products.filter(
               (product) => product.category === category
@@ -47,8 +48,8 @@ export default function HomeLanding({ onViewMoreClick }) {
                 className="w-full h-full flex flex-col items-center text-left  "
                 key={index}
               >
-                <div className="w-full h-full flex ml-[60px] text-center ">
-                  <h2 className="text-[#2F3035] text-[20px]  font-medium leading-[25.36px] pt-[60px]  w-full h-full">
+                <div className="w-full h-full flex  text-center ">
+                  <h2 className="text-[#2F3035] text-[20px] capitalize font-medium leading-[25.36px] pt-[60px]  w-full h-full">
                     {category}
                   </h2>
                 </div>
@@ -57,13 +58,20 @@ export default function HomeLanding({ onViewMoreClick }) {
                   {displayedProducts.map((product) => (
                     <div key={product.id}>
                       <div className="relative">
-                        <img
-                          className="w-[302px] h-[302px] md:h-[202px] mt-[25px] rounded-[12px]"
-                          src={product.images[0]}
-                          alt={product.title}
-                        />
+                        <Link to={`/product/${product.id}`}>
+                          <img
+                            className="w-[302px] h-[302px] md:h-[202px] mt-[25px] rounded-[12px]"
+                            src={product.images[0]}
+                            alt={product.title}
+                          />
+                        </Link>
+
                         <div className="absolute bg-[#EDEFFD] flex items-center justify-center w-[32px] h-[32px] rounded-[40px] top-[16px] right-[25px] cursor-pointer">
-                          <BiBookmark size={24} className="text-[#4D5DED]" />
+                          <BiBookmark
+                            size={24}
+                            onClick={() => addToSave(product)}
+                            className="text-[#4D5DED]"
+                          />
                         </div>
                       </div>
 
@@ -87,7 +95,7 @@ export default function HomeLanding({ onViewMoreClick }) {
                     // onClick={() => handleViewMore(category)}
                     onClick={handleViewMoreClick}
                   >
-                    <div className=" w-[120px] h-full top-0 right-[15px] flex  ">
+                    <div className=" w-[120px] h-full top-0  flex  ">
                       <p>View More</p>{" "}
                       <BsArrowRight className="mt-[4px] ml-[8px]" />
                     </div>
