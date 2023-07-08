@@ -10,6 +10,10 @@
     }
 }
 
+.header-hi{
+    font-family: 'Aclonica', sans-serif;
+}
+/* 
 input[type="email"],
 input[type="password"] {
     width: 95%;
@@ -18,7 +22,7 @@ input[type="password"] {
     border-radius: 10px;
     border: none;
     
-}
+} */
 
 /* input[type="password"] {
     padding-right: 40px;
@@ -53,12 +57,12 @@ input[type="password"]::-ms-clear {
     color: red;
 }
 
-label {
+/* label {
     padding-right: 20px;
     margin-left: 0;
     margin-bottom: 5px;
     font-size: 20px;
-}
+} */
 
 .errorContainer {
     height: 1.5rem;

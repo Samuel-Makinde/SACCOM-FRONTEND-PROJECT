@@ -9,11 +9,6 @@ const ViewMore = () => {
   const { products, categories } = useGlobalContext();
   const [activeCategory, setActiveCategory] = useState(categories[0]);
 
-  // Function to handle category selection
-  // const handleCategorySelect = (category) => {
-  //   setActiveCategory(category);
-  // };
-
   // to handle unnecessary re-render
   const handleCategorySelect = useCallback((category) => {
     setActiveCategory(category);

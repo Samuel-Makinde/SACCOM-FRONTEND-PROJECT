@@ -11,14 +11,20 @@ import CartPage from "./component/Home-Page/Cart-Page/CartPage";
 import SavedProduct from "./component/Home-Page/Products-Page/SavedProductPage/SavedProduct";
 import HomeLanding from "./component/Home-Page/Products-Page/HomeLandingPage/HomeLanding";
 import ProductView from "./component/Home-Page/Products-Page/ProductViewPage/ProductView";
+import ScrollToTop from "./component/Scroll-To-Top/ScrollToTop";
+import { useLocation } from "react-use";
 
 function App() {
+  const location = useLocation();
+  const hideNavbar = location.pathname === "/login";
   return (
     <div>
       <ProductProvider>
         <Router>
-          <Navbar />
+          {!hideNavbar && <Navbar />}
+          <ScrollToTop />
           <Routes>
+            <Route path="/login" element={<Login />} />
             <Route path="/" element={<Home />} />
             <Route path="/savedproduct" element={<SavedProduct />} />
             <Route path="/cart" element={<CartPage />} />

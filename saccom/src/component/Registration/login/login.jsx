@@ -40,25 +40,25 @@ function Login(props) {
     passwordNotVisible((prevState) => !prevState);
   };
   return (
-    <main className="w-full h-full md:h-[726px] bg-[#FFFFFF]  ">
+    <main className="w-full h-full md:h-[726px] bg-[#FFFFFF] px-4 font-euclid">
       <h1 className="text-[#2F3035] text-[32px] font-bold mt-[1px] md:ml-[56px] header-hi">
         SACCOM
       </h1>
       <div className=" text-black w-full h-full px-4  md:flex md:justify-center md:items-center ">
         <form
-          className="h-full w-full md:h-[526px] md:w-[400px] lg:w-[600px] flex flex-col justify-center items-center"
+          className="h-full w-full md:h-[626px] md:w-[400px] lg:w-[600px] flex flex-col justify-center items-center"
           onSubmit={handleSubmit(onSubmit)}
         >
-          <div className="w-full h-full ">
-            <h2 className="text-[#2F3035] text-center md:text-[32px] leading-[60.86px] font-semibold">
+          <div className="w-full h-full md:pr-[60px] ">
+            <h2 className="text-[#2F3035] text-center text-[24px] md:text-[32px] leading-[60.86px] font-semibold">
               Welcome back
             </h2>
-            <p className=" text-[#85868D] text-[16px] text-center leading-[20.29px] align-middle">
+            <p className=" text-[#85868D] text-[16px] text-center leading-[20.29px] pt-[10px] align-middle">
               Lorem ipsum dolor sit amet consectetur. Malesuada ultricies ut
               proin tempus. Dolor rhoncus eget platea mi.
             </p>
 
-            <div className="relative w-full flex flex-col-reverse">
+            <div className="relative w-full flex flex-col-reverse   mt-[50px]">
               <label
                 className="absolute top-[4px] left-[50px] text-[#04050C] md:text-[12px] leading-[15.22px]"
                 htmlFor="email"
@@ -75,7 +75,7 @@ function Login(props) {
                 name="email"
                 {...register("email")}
                 placeholder="Email@address.com"
-                className=""
+                className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px]"
                 style={{ paddingLeft: "50px" }}
               ></input>
             </div>
@@ -89,7 +89,7 @@ function Login(props) {
               </small>
             </div>
 
-            <div className="relative w-full flex flex-col-reverse">
+            <div className="relative w-full flex flex-col-reverse mt-[30px] md:mt-[50px] ">
               <label
                 className="absolute top-[4px] left-[50px] text-[#04050C] md:text-[12px] leading-[15.22px]"
                 htmlFor="password"
@@ -106,6 +106,7 @@ function Login(props) {
                 name="password"
                 {...register("password")}
                 placeholder="************"
+                className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px]"
                 style={{ paddingLeft: "50px" }}
               ></input>
               <button
@@ -124,25 +125,34 @@ function Login(props) {
               >
                 {errors.password?.message}{" "}
               </small>
-              <p>Forgot Password?</p>
+              <p className="text-[#4D5DED] text-[12px] leading-[15.22px] mt-[5px] cursor-pointer">
+                Forgot Password?
+              </p>
             </div>
             {/* <p>Forgot Password?</p> */}
-          </div>
-          <button
-            className="bg-[#4D5DED] rounded-[12px] px-[20px] py-[10px] w-[328px] h-[58px] text-white"
-            type="submit"
-          >
-            Login
-          </button>
-          <p>
-            Don&apos;t have an account?{" "}
-            <button onClick={() => props.onFormSwitch("register")}>
-              Create Account
+            <button
+              className="bg-[#4D5DED] text-[16px] md:text-[20px] rounded-[12px] mt-[60px]  px-[20px] py-[10px] w-full h-[60px]  text-white"
+              type="submit"
+            >
+              Log in
             </button>
-          </p>
+
+            <p className="text-[#54555B] leading-[15.22px] text-[12px] mt-[20px]">
+              <input type="checkbox" name="" id="" /> Keep me logged in.
+            </p>
+            <p className="text-[#2F3035] text-[16px] leading-[20.22px] font-normal mt-[30px] text-center">
+              Don&apos;t have an account?{" "}
+              <button
+                className="text-[#4D5DED]"
+                onClick={() => props.onFormSwitch("register")}
+              >
+                Sign Up.
+              </button>
+            </p>
+          </div>
         </form>
 
-        <div className="hidden md:flex h-[526px] w-[400px] lg:w-[500px] ">
+        <div className="hidden md:flex h-[626px] w-[400px] lg:w-[500px] ">
           <img src={roomImage} alt="roomImage" className="w-full h-full" />
         </div>
       </div>

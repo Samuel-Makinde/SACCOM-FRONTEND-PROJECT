@@ -60,10 +60,13 @@ const Navbar = () => {
           <img src={person1} alt="account" className="cursor-pointer" />
           <h1 className="pl-[10px] cursor-pointer">Create account</h1>
         </li>
-        <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
-          <img src={person2} alt="login" className="cursor-pointer" />
-          <h1 className="pl-[10px] cursor-pointer">Log in</h1>
-        </li>
+
+        <Link to="login">
+          <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
+            <img src={person2} alt="login" className="cursor-pointer" />
+            <h1 className="pl-[10px] cursor-pointer">Log in</h1>
+          </li>
+        </Link>
 
         <Link to="/">
           <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">

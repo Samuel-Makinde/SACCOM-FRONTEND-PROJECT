@@ -42,7 +42,7 @@ const ProductView = () => {
         Subject
       )}&body=${encodeURIComponent(body)}`;
 
-      window.open(fallBackOption, "_blank");
+      window.open(fallBackOption, "_self");
     }
   };
 
@@ -50,7 +50,7 @@ const ProductView = () => {
     return <div className="w-full h-full pt-[100px]">Product not found</div>; // Render a loading state or error message if product is not found
   }
   return (
-    <main className="w-full h-full pt-[20px] md:pt-[100px]">
+    <main className="w-full h-full pt-[60px] md:pt-[100px]">
       <div className="w-full h-full font-euclid">
         {/* {warning && <div className="absolute z-50 text-[100px]">Item already in cart</div> } */}
         {/* {products.map((product, index) => { */}
@@ -79,7 +79,7 @@ const ProductView = () => {
                 </p>
               </div>
 
-              <div className="z-10 absolute md:relative w-full h-full md:w-[200px] top-[70px]  md:top-0 md:right-0 text-[#4D5DED] md:text-[#54555B] text-[16px] ">
+              <div className="z-10 absolute md:relative w-full h-full md:w-[200px] top-[80px]  md:top-0 md:right-0 text-[#4D5DED] md:text-[#54555B] text-[16px] ">
                 <div className="w-full flex justify-between px-4 md:px-0 ">
                   <div className="w-[24px] h-[24px] cursor-pointer md:hidden bg-[#EDEFFD] rounded-[40px] flex items-center justify-center">
                     <IoIosArrowBack />
