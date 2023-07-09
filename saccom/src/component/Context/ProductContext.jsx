@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Loading from "../Home-Page/LoadingSpinner/loading";
+// import Loading from "../Home-Page/LoadingSpinner/loading";
 import { useCallback } from "react";
 
 const ProductContext = React.createContext();
