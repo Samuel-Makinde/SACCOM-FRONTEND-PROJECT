@@ -6,6 +6,8 @@ import roomImage from "./Image.png";
 import "./login.css";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiKey } from "react-icons/bi";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 // import roomImage from './Image.png';
 // import Main from '../Main-Page/Main';
@@ -21,34 +23,31 @@ const formSchema = yup.object().shape({
   password: yup.string().required("Password is required"),
 });
 
-function Login(props) {
-  const [isAuthenticated, setIsAuthenticated] = useState("true");
+function Login() {
+  // const [isAuthenticated, setIsAuthenticated] = useState("true");
   const {
     register,
-    handleSubmit,
+    // handleSubmit,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(formSchema),
   });
 
-  const onSubmit = (date) => {
-    setIsAuthenticated("false");
-  };
+  // const onSubmit = (date) => {
+  //   setIsAuthenticated("false");
+  // };
 
   const [passwordVisibile, passwordNotVisible] = useState(false);
   const togglePassword = () => {
     passwordNotVisible((prevState) => !prevState);
   };
   return (
-    <main className="w-full h-full md:h-[726px] bg-[#FFFFFF] px-4 font-euclid">
+    <main className="w-full h-full md:h-[726px]  bg-[#FFFFFF] px-4 font-euclid">
       <h1 className="text-[#2F3035] text-[32px] font-bold mt-[1px] md:ml-[56px] header-hi">
         SACCOM
       </h1>
-      <div className=" text-black w-full h-full px-4  md:flex md:justify-center md:items-center ">
-        <form
-          className="h-full w-full md:h-[626px] md:w-[400px] lg:w-[600px] flex flex-col justify-center items-center"
-          onSubmit={handleSubmit(onSubmit)}
-        >
+      <div className=" text-black w-full h-full px-4   md:flex md:justify-center md:items-center ">
+        <form className="h-full w-full md:h-[626px] mb-8 md:mb-0  mt-[30px] md:w-[400px] lg:w-[600px] flex flex-col justify-center items-center">
           <div className="w-full h-full md:pr-[60px] ">
             <h2 className="text-[#2F3035] text-center text-[24px] md:text-[32px] leading-[60.86px] font-semibold">
               Welcome back
@@ -57,7 +56,6 @@ function Login(props) {
               Lorem ipsum dolor sit amet consectetur. Malesuada ultricies ut
               proin tempus. Dolor rhoncus eget platea mi.
             </p>
-
             <div className="relative w-full flex flex-col-reverse   mt-[50px]">
               <label
                 className="absolute top-[4px] left-[50px] text-[#04050C] md:text-[12px] leading-[15.22px]"
@@ -79,7 +77,6 @@ function Login(props) {
                 style={{ paddingLeft: "50px" }}
               ></input>
             </div>
-
             <div className="errorContainer">
               <small
                 className="errorMsg"
@@ -88,7 +85,6 @@ function Login(props) {
                 {errors.email?.message}
               </small>
             </div>
-
             <div className="relative w-full flex flex-col-reverse mt-[30px] md:mt-[50px] ">
               <label
                 className="absolute top-[4px] left-[50px] text-[#04050C] md:text-[12px] leading-[15.22px]"
@@ -112,12 +108,11 @@ function Login(props) {
               <button
                 type="button"
                 onClick={togglePassword}
-                className="passwordToggle"
+                className="absolute top-1/3 right-[20px] bg-transparent border-none text-red-900"
               >
                 {passwordVisibile ? "Hide" : "show"}
               </button>
             </div>
-
             <div className="flex justify-between">
               <small
                 className="errorMsg"
@@ -129,25 +124,23 @@ function Login(props) {
                 Forgot Password?
               </p>
             </div>
-            {/* <p>Forgot Password?</p> */}
-            <button
-              className="bg-[#4D5DED] text-[16px] md:text-[20px] rounded-[12px] mt-[60px]  px-[20px] py-[10px] w-full h-[60px]  text-white"
-              type="submit"
-            >
-              Log in
-            </button>
 
+            <div className="bg-[#4D5DED] text-center text-[16px] md:text-[20px] rounded-[12px] mt-[60px]  px-[20px] py-[20px] w-full h-[60px]  text-white">
+              <button type="submit">Log in</button>
+            </div>
             <p className="text-[#54555B] leading-[15.22px] text-[12px] mt-[20px]">
-              <input type="checkbox" name="" id="" /> Keep me logged in.
+              <input type="checkbox" id="checkbox" /> Keep me logged in.
             </p>
             <p className="text-[#2F3035] text-[16px] leading-[20.22px] font-normal mt-[30px] text-center">
               Don&apos;t have an account?{" "}
-              <button
-                className="text-[#4D5DED]"
-                onClick={() => props.onFormSwitch("register")}
-              >
-                Sign Up.
-              </button>
+              <Link to="/signup">
+                <button
+                  className="text-[#4D5DED]"
+                  // onClick={() => props.onFormSwitch("/signup")}
+                >
+                  Sign Up.
+                </button>
+              </Link>
             </p>
           </div>
         </form>
@@ -160,4 +153,7 @@ function Login(props) {
   );
 }
 
+Login.propTypes = {
+  onFormSwitch: PropTypes.func.isRequired,
+};
 export default Login;

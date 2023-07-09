@@ -10,9 +10,10 @@
     }
 }
 
-.header-hi{
+.header-hi {
     font-family: 'Aclonica', sans-serif;
 }
+
 
 .errorContainer {
     height: 1.5rem;
@@ -21,7 +22,10 @@
 }
 
 .errorMsg {
+    max-width: 350px;
     color: red;
-    font-size: 16px
+    font-size: 14px;
+    font-weight: 300;
 }
+
 

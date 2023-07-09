@@ -9,37 +9,44 @@ import Login from "./component/Registration/login/login";
 import "./index.css";
 import CartPage from "./component/Home-Page/Cart-Page/CartPage";
 import SavedProduct from "./component/Home-Page/Products-Page/SavedProductPage/SavedProduct";
-import HomeLanding from "./component/Home-Page/Products-Page/HomeLandingPage/HomeLanding";
+// import HomeLanding from "./component/Home-Page/Products-Page/HomeLandingPage/HomeLanding";
 import ProductView from "./component/Home-Page/Products-Page/ProductViewPage/ProductView";
 import ScrollToTop from "./component/Scroll-To-Top/ScrollToTop";
 import { useLocation } from "react-use";
+import SignUp from "./component/Registration/Sign Up/SignUp";
 
 function App() {
   const location = useLocation();
-  const hideNavbar = location.pathname === "/login";
+  const isLoginPage = location.pathname === "/login";
+  const isSignUpPage = location.pathname === "/signup";
+
   return (
     <div>
       <ProductProvider>
         <Router>
-          {!hideNavbar && <Navbar />}
+          {!isLoginPage && !isSignUpPage && <Navbar />}
           <ScrollToTop />
           <Routes>
             <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/" element={<Home />} />
             <Route path="/savedproduct" element={<SavedProduct />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/about" element={<About />} />
             <Route path="/staff" element={<Staffs />} />
-            <Route path="/product/:productId" element={<ProductView />} />
+            <Route
+              path="/product/:productId"
+              element={
+                <ProductView
+                  title="Product Description Page"
+                  url={window.location.href}
+                />
+              }
+            />
           </Routes>
-          <Footer />
+          {!isLoginPage && !isSignUpPage && <Footer />}
         </Router>
       </ProductProvider>
-      <div>
-        {/* <Login /> */}
-        {/* <About /> */}
-        {/* <Staffs /> */}
-      </div>
     </div>
   );
 }

@@ -30,7 +30,7 @@ const Navbar = () => {
     setToggle(!toggle);
   };
   return (
-    <div className="fixed w-full h-[60px] md:h-[90px] flex items-center md:grid md:grid-cols-3 md:gap-4 px-4 bg-white z-20 font-euclid">
+    <main className="fixed w-full h-[60px] md:h-[90px] flex items-center md:grid md:grid-cols-3 md:gap-4 px-4 bg-white z-20 font-euclid">
       <div onClick={handleToggle} className="md:hidden z-10">
         {toggle ? (
           <div className="w-[32px] h-[32px] bg-[#EDEFFD] cursor-pointer flex justify-center items-center rounded-[20px]">
@@ -56,12 +56,14 @@ const Navbar = () => {
           styles.mobile
         }`}
       >
-        <li className="text-[#04050C] leading-[20px] text-[16px] flex px-[24px] py-[16px]  font-medium">
-          <img src={person1} alt="account" className="cursor-pointer" />
-          <h1 className="pl-[10px] cursor-pointer">Create account</h1>
-        </li>
+        <Link to="/signup">
+          <li className="text-[#04050C] leading-[20px] text-[16px] flex px-[24px] py-[16px]  font-medium">
+            <img src={person1} alt="account" className="cursor-pointer" />
+            <h1 className="pl-[10px] cursor-pointer">Create account</h1>
+          </li>
+        </Link>
 
-        <Link to="login">
+        <Link to="/login">
           <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
             <img src={person2} alt="login" className="cursor-pointer" />
             <h1 className="pl-[10px] cursor-pointer">Log in</h1>
@@ -144,18 +146,30 @@ const Navbar = () => {
                 className=" absolute  h-full w-[300px]  mt-[30px]  mr-[100px] "
               >
                 <ul className="mr-[20px] bg-white rounded-[24px] shadow-2xl ">
-                  <li className="flex text-[#54555B] leading-[20px] text-[16px]   px-[24px] py-[16px] font-normal">
-                    <img
-                      src={person1}
-                      alt="account"
-                      className="cursor-pointer"
-                    />
-                    <h1 className="pl-[10px] cursor-pointer">Create account</h1>
-                  </li>
-                  <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal">
-                    <img src={person2} alt="login" className="cursor-pointer" />
-                    <h1 className="pl-[10px] cursor-pointer">Log in</h1>
-                  </li>
+                  <Link to="/signup">
+                    <li className="flex text-[#54555B] leading-[20px] text-[16px]   px-[24px] py-[16px] font-normal">
+                      <img
+                        src={person1}
+                        alt="account"
+                        className="cursor-pointer"
+                      />
+                      <h1 className="pl-[10px] cursor-pointer">
+                        Create account
+                      </h1>
+                    </li>
+                  </Link>
+
+                  <Link to="/login">
+                    <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal">
+                      <img
+                        src={person2}
+                        alt="login"
+                        className="cursor-pointer"
+                      />
+                      <h1 className="pl-[10px] cursor-pointer">Log in</h1>
+                    </li>
+                  </Link>
+
                   <Link to="/">
                     <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
                       <AiOutlineHome size={20} />
@@ -226,7 +240,7 @@ const Navbar = () => {
           )}
         </div> */}
       </div>
-    </div>
+    </main>
   );
 };
 

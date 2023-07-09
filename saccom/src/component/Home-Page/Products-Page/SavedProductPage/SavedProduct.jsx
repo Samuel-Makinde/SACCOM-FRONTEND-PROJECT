@@ -72,45 +72,7 @@ const SavedProduct = () => {
         </div>
       </div>
 
-      {/* <div className="w-full h-full md:pl-10 px-4   ">
-        <div className="border-b-[2px] border-b-[#D4D5DB]  mt-[40px]"></div>
-        <div className="w-full h-full   sm:grid sm:grid-cols-2 gap-4 grid-flow-row md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {savedProduct.length === 0 ? (
-            <h2 className="text-[#2F3035] text-[16px] md:text-[48px] mt-[10px]  font-semibold ">
-              No product have been saved
-            </h2>
-          ) : (
-            <div>
-               products.map((product) => {
-              if (savedProduct.some((item) => item.id === product.id)) {
-                return (
-                  <div key={product.id} className="w-full h-full">
-                    <div className="relative w-[302px] h-[302px]  sm:w-[270px] sm:h-[270px] md:w-[302px] md:h-[302px] lg:w-[270px] lg-h[270px]">
-                      <Link to={`/product/${product.id}`}>
-                        <img
-                          className="w-[302px] h-[302px] sm:w-[270px] sm:h-[270px] md:w-[300px] md:h-[300px] lg:w-[270px] lg:h-[270px]  mt-[30px] rounded-[12px]"
-                          src={product.images[0]}
-                          alt={product.title}
-                        />
-                      </Link>
-
-                      <div className="absolute bg-[#EDEFFD] flex items-center justify-center w-[32px] h-[32px] rounded-[40px] top-[13px] right-[20px]  cursor-pointer">
-                        <div className="text-[#4D5DED]  ">
-                          <BsBookmarkFill size={24} />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              }
-            }))
-            </div>
-           
-          )
-          
-          }
-        </div>
-      </div> */}
+      
     </main>
   );
 };

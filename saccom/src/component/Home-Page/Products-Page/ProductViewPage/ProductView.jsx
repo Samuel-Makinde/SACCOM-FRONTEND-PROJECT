@@ -6,10 +6,10 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { IoIosArrowBack } from "react-icons/io";
 import PropTypes from "prop-types";
 import { useWindowSize } from "react-use";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 // import {Ma} from "react-mailto";
 
-const ProductView = () => {
+const ProductView = ({ title, url }) => {
   const { products, addToCart, addToSave } = useGlobalContext();
   const { width } = useWindowSize();
 
@@ -18,8 +18,11 @@ const ProductView = () => {
     (product) => product.id === parseInt(productId)
   );
 
-  const title = "Product Description Page";
-  const url = window.location.href;
+  const navigate = useNavigate();
+
+  const previourpage = () => {
+    navigate(-1);
+  };
 
   // to share page on supported browser
   const ShareProductDescription = async () => {
@@ -81,7 +84,10 @@ const ProductView = () => {
 
               <div className="z-10 absolute md:relative w-full h-full md:w-[200px] top-[80px]  md:top-0 md:right-0 text-[#4D5DED] md:text-[#54555B] text-[16px] ">
                 <div className="w-full flex justify-between px-4 md:px-0 ">
-                  <div className="w-[24px] h-[24px] cursor-pointer md:hidden bg-[#EDEFFD] rounded-[40px] flex items-center justify-center">
+                  <div
+                    className="w-[24px] h-[24px] cursor-pointer md:hidden bg-[#EDEFFD] rounded-[40px] flex items-center justify-center"
+                    onClick={previourpage}
+                  >
                     <IoIosArrowBack />
                   </div>
 
