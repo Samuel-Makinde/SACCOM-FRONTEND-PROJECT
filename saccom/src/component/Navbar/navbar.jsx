@@ -11,6 +11,7 @@ import love from "./images/love.png";
 import cart from "./images/cart.png";
 import search from "./images/search.png";
 import person3 from "./images/personPlaceholder.png";
+import logoImage from "./images/saccum design.svg.png";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -40,13 +41,11 @@ const Navbar = () => {
           <FaBars className="text-[#54555B] w-[18px] h-[16px]  cursor-pointer transition-transform hover:scale-110 ease-in-out delay-1000 duration-1000 transform" />
         )}
       </div>
-      <div>
-        <h1
-          className={`#2F3035 text-[20px] leading-[23px] ml-[40px] mt-[0.5px] ${styles.heading}`}
-        >
-          SACCOM
-        </h1>
-      </div>
+      <Link to="/">
+        <div className="w-[175px] h-[50px] ml-[20px] cursor-pointer ">
+          <img src={logoImage} alt="logoImage" />
+        </div>
+      </Link>
 
       {/* mobile-view-navbar */}
       <ul
