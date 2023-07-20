@@ -42,7 +42,7 @@ const Navbar = () => {
         )}
       </div>
       <Link to="/">
-        <div className="w-[175px] h-[50px] ml-[20px] cursor-pointer ">
+        <div className="w-[93px] h-[24px] md:w-[175px] md:h-[50px] ml-[20px] cursor-pointer ">
           <img src={logoImage} alt="logoImage" />
         </div>
       </Link>
