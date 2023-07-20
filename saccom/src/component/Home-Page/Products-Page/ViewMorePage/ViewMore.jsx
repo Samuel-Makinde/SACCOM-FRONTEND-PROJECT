@@ -6,7 +6,7 @@ import search from "../../../../assets/HomeImageSlider/search.png";
 import { Link } from "react-router-dom";
 
 const ViewMore = () => {
-  const { products, categories } = useGlobalContext();
+  const { products, categories, addToSave } = useGlobalContext();
   const [activeCategory, setActiveCategory] = useState(categories[0]);
 
   // to handle unnecessary re-render
@@ -62,7 +62,10 @@ const ViewMore = () => {
                     />
                   </Link>
 
-                  <div className="absolute bg-[#EDEFFD] flex items-center justify-center w-[32px] h-[32px] rounded-[40px] top-[13px] right-[20px]  cursor-pointer">
+                  <div
+                    onClick={() => addToSave(product)}
+                    className="absolute bg-[#EDEFFD] flex items-center justify-center w-[32px] h-[32px] rounded-[40px] top-[13px] right-[20px]  cursor-pointer"
+                  >
                     <BiBookmark size={24} className="text-[#4D5DED]" />
                   </div>
                 </div>
