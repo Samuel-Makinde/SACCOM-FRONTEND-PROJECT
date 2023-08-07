@@ -51,8 +51,8 @@ const SavedProduct = () => {
                         <Link to={`/product/${product.id}`}>
                           <img
                             className="w-[302px] h-[302px] sm:w-[270px] sm:h-[270px] md:w-[300px] md:h-[300px] lg:w-[270px] lg:h-[270px] mt-[30px] rounded-[12px]"
-                            src={product.images[0]}
-                            alt={product.title}
+                            src={product.apartment_sub_images[0]}
+                            alt={product.apartment_name}
                           />
                         </Link>
 

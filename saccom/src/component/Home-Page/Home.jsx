@@ -6,7 +6,7 @@ const Home = () => {
   const [isViewMore, setIsViewMore] = useState(false);
 
   const handleViewMoreClick = () => {
-    setIsViewMore(true);
+    setIsViewMore(!isViewMore);
   };
 
   return (

@@ -8,7 +8,7 @@ const Staffs = () => {
   return (
     <main className="w-full h-full md:overflow-hidden font-euclid">
       {/* <Navbar /> */}
-      <div className="pt-[80px]  w-full h-full">
+      <div className="pt-[100px]  w-full h-full">
         <div className="lg:ml-[83px] md:ml-[50px] md:grid grid-cols-2 gap-2 px-4">
           <h1 className=" font-semibold text-[24px] leading-[30.43px] md:text-[28px] lg:w-[513px] md:w-[350px] md:h-[183px]">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic nisi,

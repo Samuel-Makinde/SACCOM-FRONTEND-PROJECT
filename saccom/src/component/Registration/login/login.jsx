@@ -6,7 +6,7 @@ import roomImage from "./Image.png";
 import "./login.css";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiKey } from "react-icons/bi";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 // import roomImage from './Image.png';
@@ -153,7 +153,7 @@ function Login() {
   );
 }
 
-Login.propTypes = {
-  onFormSwitch: PropTypes.func.isRequired,
-};
+// Login.propTypes = {
+//   onFormSwitch: PropTypes.func.isRequired,
+// };
 export default Login;

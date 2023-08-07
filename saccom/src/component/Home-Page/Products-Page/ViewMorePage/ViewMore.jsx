@@ -57,8 +57,8 @@ const ViewMore = () => {
                   <Link to={`/product/${product.id}`}>
                     <img
                       className="w-[302px] h-[302px] sm:w-[270px] sm:h-[270px] md:w-[300px] md:h-[300px] lg:w-[270px] lg:h-[270px]  mt-[30px] rounded-[12px]"
-                      src={product.images[0]}
-                      alt={product.title}
+                      src={product.apartment_sub_images[0]}
+                      alt={product.apartment_name}
                     />
                   </Link>
 
@@ -72,13 +72,13 @@ const ViewMore = () => {
 
                 <div>
                   <h3 className="text-[#2F3035] text-[20px] font-medium leading-[25.36px] pt-[10px]">
-                    {product.title}
+                    {product.apartment_name}
                   </h3>
                   <p className="w-[216px] h-full text-[16px] font-normal text-[#54555B] mt-[2px] leading-[20px]">
-                    {product.description}
+                    {product.apartment_summary_description}
                   </p>
                   <p className="pt-[5px] text-[#54555B] text-[16px] leading-[20px] font-normal">
-                    ${product.price} per year
+                    ${product.rent_price} per year
                   </p>
                 </div>
               </div>

@@ -61,8 +61,9 @@ export default function HomeLanding({ onViewMoreClick }) {
                         <Link to={`/product/${product.id}`}>
                           <img
                             className="w-[302px] h-[302px] md:h-[202px] mt-[25px] rounded-[12px]"
-                            src={product.images[0]}
-                            alt={product.title}
+                            src={product.apartment_sub_images[0]}
+                            alt={product.apartment_name}
+                            onError={(e) => console.error("Image Error:", e)}
                           />
                         </Link>
 
@@ -77,22 +78,21 @@ export default function HomeLanding({ onViewMoreClick }) {
 
                       <div>
                         <h3 className="text-[#2F3035] text-[20px] font-medium leading-[25.36px]  pt-[10px]">
-                          {product.title}
+                          {product.apartment_name}
                         </h3>
                         <p className="w-[216px] h-full text-[16px] font-normal text-[#54555B] mt-[2px] leading-[20px]">
-                          {product.description}
+                          {product.apartment_summary_description}
                         </p>
                         <p className="pt-[5px] text-[#54555B] text-[16px] leading-[20px] font-normal">
-                          ${product.price} per year
+                          ${product.rent_price} per year
                         </p>
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="w-full h-full">
+                <div className="w-full h-full mt-[20px]">
                   <button
-                    className="text-[#4D5DED] leading-[20px] font-normal w-full h-full text-[16px] mt-[20px] flex  justify-end mr-[30px] "
-                    // onClick={() => handleViewMore(category)}
+                    className="text-[#4D5DED] leading-[20px] font-normal w-full h-full text-[16px]  flex  justify-end mr-[30px] "
                     onClick={handleViewMoreClick}
                   >
                     <div className=" w-[120px] h-full top-0  flex  ">
@@ -100,7 +100,7 @@ export default function HomeLanding({ onViewMoreClick }) {
                       <BsArrowRight className="mt-[4px] ml-[8px]" />
                     </div>
                   </button>
-                  <div className=" border-b-[1px] border-b-[#AAB0B766] rounded-[4px]  mt-[30px] ml-[20px] border-[2px] mr-[20px]"></div>
+                  <div className=" border-b-[1px] border-b-[#AAB0B766] rounded-[4px] mt-[30px]  ml-[20px] border-[2px] mr-[20px]"></div>
                 </div>
               </div>
             );

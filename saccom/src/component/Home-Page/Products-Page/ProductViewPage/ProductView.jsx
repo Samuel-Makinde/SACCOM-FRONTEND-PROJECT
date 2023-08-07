@@ -7,16 +7,20 @@ import { IoIosArrowBack } from "react-icons/io";
 import PropTypes from "prop-types";
 import { useWindowSize } from "react-use";
 import { useParams, useNavigate } from "react-router-dom";
-// import {Ma} from "react-mailto";
 
 const ProductView = ({ title, url }) => {
   const { products, addToCart, addToSave } = useGlobalContext();
   const { width } = useWindowSize();
 
   const { productId } = useParams();
+  console.log("this is the product Id", productId);
+
+  // const parsedProductId = parseInt(productId);
+
   const product = products.find(
     (product) => product.id === parseInt(productId)
   );
+  console.log("this is product", product);
 
   const navigate = useNavigate();
 
@@ -48,9 +52,18 @@ const ProductView = ({ title, url }) => {
       window.open(fallBackOption, "_self");
     }
   };
+  const setBackgroundColor = (index) => {
+    const colors = ["#F2EDFF", "#FEEEE3", "#E5E9FF", "#DDFCEF", "#FFEDED"];
+    return colors[index % colors.length];
+  };
+
+  const setTextColor = (index) => {
+    const TextColors = ["#7F57EF", "#FC984F", "#4764FC", "#26C281", "#D83838"];
+    return TextColors[index % TextColors.length];
+  };
 
   if (!product) {
-    return <div className="w-full h-full pt-[100px]">Product not found</div>; // Render a loading state or error message if product is not found
+    return <div className="w-full h-full pt-[100px]">Product not found</div>;
   }
   return (
     <main className="w-full h-full pt-[60px] md:pt-[100px]">
@@ -62,15 +75,15 @@ const ProductView = ({ title, url }) => {
           <div className="w-full h-full flex flex-col-reverse md:flex-none md:flex-col">
             <div className="w-full h-full px-4 md:px-0">
               <h1 className="text-[24px] font-semibold leading-[30.43px] md:text-[48px] text-[#2F3035] md:leading-[60px] ">
-                {product.title}
+                {product.apartment_name}
               </h1>
               <p className="text-[#54555B] text-[16px] leading-[20px]">
-                Summary description of the hostel
+                {product.apartment_summary_description}
               </p>
               <div className="text-[#54555B] flex md:hidden md:mt-[5px]">
                 <RiPinDistanceLine size={20} className="mt-[5px]" />
                 <p className=" md:text-[16px] leading--[20.29px] ml-[5px] ">
-                  30 mins walk from main gate
+                  {product.time_in_mins_from_gate} mins walk from main gate
                 </p>
               </div>
             </div>
@@ -78,7 +91,7 @@ const ProductView = ({ title, url }) => {
               <div className="hidden md:flex text-[#54555B]  md:mt-[5px]">
                 <RiPinDistanceLine size={20} className="mt-[5px]" />
                 <p className="text-[16px] leading--[20.29px] ml-[5px] ">
-                  30 mins walk from main gate
+                  {product.time_in_mins_from_gate} mins walk from main gate
                 </p>
               </div>
 
@@ -130,39 +143,46 @@ const ProductView = ({ title, url }) => {
             <div className="relative w-full h-[236px] md:h-[524px] md:grid grid-cols-4 grid-rows-2 md:mt-[30px]">
               <img
                 className=" w-full h-[236px] md:h-full md:row-span-2 md:col-span-2 md:rounded-l-[12px] md:pr-[15px]"
-                src={product.images[0]}
-                alt={product.title}
+                src={product.apartment_sub_images[0]}
+                alt={product.apartment_name}
               />
               <img
                 className="hidden md:flex md:h-[254px] md:pr-[15px] "
-                src={product.images[1]}
-                alt={product.title}
+                src={product.apartment_sub_images[1]}
+                alt={product.apartment_name}
               />
               <img
                 className="hidden md:flex rounded-r-[12px] md:h-[254px] "
-                src={product.images[2]}
-                alt={product.title}
+                src={product.apartment_sub_images[2]}
+                alt={product.apartment_name}
               />
               <img
                 className="hidden md:flex md:h-[254px] md:pr-[15px] md: mt-[10px] "
-                src={product.images[3]}
-                alt={product.title}
+                src={product.apartment_sub_images[3]}
+                alt={product.apartment_name}
               />
               <img
                 className="hidden md:flex  rounded-r-[12px] md:h-[254px] md:mt-[10px]"
-                src={product.images[4]}
-                alt={product.title}
+                src={product.apartment_sub_images[4]}
+                alt={product.apartment_name}
               />
             </div>
           </div>
 
           {/* To get accomodation type, price and add to cart*/}
-          <div className="w-full h-full mt-[40px] px-4 md:px-0 ">
+          <div className="w-full h-full mt-[20px] px-4 md:px-0 ">
             <div className="w-full h-full md:flex justify-between">
-              <div className="flex">
-                {product.images.map((info, index) => (
-                  <div key={index} className="pr-[15px]">
-                    <img src={info} alt="info" className="w-[30px] h-[30px]" />
+              <div className="flex flex-wrap ">
+                {product.appartment_attributes.map((info, index) => (
+                  <div
+                    key={index}
+                    className="w-max h-[40px] mt-[20px] whitespace-nowrap mr-[7px] flex justify-center items-center py-2 px-2 pr-[15px] text-[#54555B] text-[12px] leading-[20.29px] font-normal rounded-[20px]"
+                    style={{
+                      backgroundColor: setBackgroundColor(index),
+                      color: setTextColor(index),
+                    }}
+                  >
+                    {info}
                   </div>
                 ))}
               </div>
@@ -170,7 +190,7 @@ const ProductView = ({ title, url }) => {
               <div className="hidden md:flex md:flex-col md:w-[450px] h-full">
                 <div className="w-full h-full flex flex-col justify-start text-right">
                   <h2 className="text-[32px] font-semibold text-[#54555B] leading-[40.52px]">
-                    ${product.price}
+                    ${product.rent_price}
                   </h2>
                   <p className="text-[#54555B] text-[16px] leading-[20.29px]">
                     Per year
@@ -203,7 +223,7 @@ const ProductView = ({ title, url }) => {
                 <div className="w-full h-full  mt-[20px] flex  justify-between">
                   <div className="w-[200px] h-full flex flex-col">
                     <h2 className="text-[24px] font-semibold  text-[#54555B] md:leading-[30.43px]">
-                      ${product.price}
+                      ${product.rent_price}
                     </h2>
                     <p className="text-[#54555B] text-[16px] leading-[20.29px]">
                       Per year
@@ -233,25 +253,21 @@ const ProductView = ({ title, url }) => {
                   Description
                 </h3>
                 <p className="text-[#85868D] font-normal text-[16px] leading-[20.29px] mt-[10px]">
-                  {product.description}
+                  {product.apartment_full_description}
                 </p>
                 <div className="flex md:hidden border-b-[2px] border-b-[#D4D5DB] mt-[40px]"></div>
                 <h4 className="text-[24px] font-semibold leading-[30.43px] md:text-[48px] text-[#2F3035] md:leading-[60.86px] mt-[40px]">
                   What this place offers
                 </h4>
                 <div className="w-full h-full mt-[20px]">
-                  <p className="text-[#54555B] text-[16px] leading-[20.29px] mt-[10px]">
-                    Air Condition
-                  </p>
-                  <p className="text-[#54555B] text-[16px] leading-[20.29px] mt-[10px]">
-                    Air Condition
-                  </p>
-                  <p className="text-[#54555B] text-[16px] leading-[20.29px] mt-[10px]">
-                    Air Condition
-                  </p>
-                  <p className="text-[#54555B] text-[16px] leading-[20.29px] mt-[10px]">
-                    Air Condition
-                  </p>
+                  {product.apartment_offers.map((info, index) => (
+                    <div
+                      key={index}
+                      className="pr-[15px] text-[#85868D] font-normal text-[16px] leading-[20.29px] mt-[10px]"
+                    >
+                      {info}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

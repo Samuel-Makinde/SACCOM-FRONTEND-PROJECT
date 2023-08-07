@@ -14,19 +14,35 @@ const ProductProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [savedProduct, setSavedProduct] = useState([]);
 
-  const productUrl = "https://dummyjson.com/products";
+  const productUrl =
+    "https://sheet.best/api/sheets/9e3e7603-7b2f-40c9-82fc-3d5e7f9dd9dd";
 
   const FetchApi = useCallback(async () => {
     setLoading(true);
     try {
       const response = await axios.get(productUrl);
       setLoading(false);
-      const { products } = response.data;
+      // const products = response.data;
+      const products = response.data.map((item) => {
+        const parsedId = parseInt(item.id);
+        // Destructure the apartment_sub_images property and convert it to an array
+        const {
+          apartment_sub_images,
+          appartment_attributes,
+          apartment_offers,
+          ...rest
+        } = item;
+        return {
+          ...rest,
+          id: parsedId,
+          apartment_sub_images: JSON.parse(apartment_sub_images),
+          appartment_attributes: JSON.parse(appartment_attributes),
+          apartment_offers: JSON.parse(apartment_offers.replace(/'/g, '"')),
+        };
+      });
       setProducts(products);
       console.log("working", setProducts);
       const Categories = [...new Set(products.map((item) => item.category))];
-      // category short description
-      // const ShortDetails = [...new Set(products.map((item) => item.deatils))]
       setCategory(Categories);
       console.log("getting categories", Categories);
     } catch (error) {
@@ -38,14 +54,6 @@ const ProductProvider = ({ children }) => {
   useEffect(() => {
     FetchApi();
   }, [FetchApi]);
-
-  // if (loading) {
-  //   return (
-  //     <main>
-  //       <Loading />
-  //     </main>
-  //   );
-  // }
 
   const handleViewMore = (category) => {
     setProducts((prevProducts) => {

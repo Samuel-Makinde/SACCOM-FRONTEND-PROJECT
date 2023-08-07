@@ -14,6 +14,7 @@ import ProductView from "./component/Home-Page/Products-Page/ProductViewPage/Pro
 import ScrollToTop from "./component/Scroll-To-Top/ScrollToTop";
 import { useLocation } from "react-use";
 import SignUp from "./component/Registration/Sign Up/SignUp";
+import ViewMore from "./component/Home-Page/Products-Page/ViewMorePage/ViewMore";
 
 function App() {
   const location = useLocation();
@@ -43,6 +44,7 @@ function App() {
                 />
               }
             />
+            <Route path="/view" element={<ViewMore />} />
           </Routes>
           {!isLoginPage && !isSignUpPage && <Footer />}
         </Router>

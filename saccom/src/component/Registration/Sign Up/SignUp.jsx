@@ -9,7 +9,7 @@ import { RxPerson } from "react-icons/rx";
 import { BsTelephone } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiKey } from "react-icons/bi";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 // import GmailRegistration from "./GmailRegistration";
@@ -360,6 +360,6 @@ export default function SignUp() {
   );
 }
 
-SignUp.propTypes = {
-  onFormSwitch: PropTypes.func.isRequired,
-};
+// SignUp.propTypes = {
+//   onFormSwitch: PropTypes.func.isRequired,
+// };
