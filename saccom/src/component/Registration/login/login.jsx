@@ -73,7 +73,7 @@ function Login() {
                 name="email"
                 {...register("email")}
                 placeholder="Email@address.com"
-                className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px]"
+                className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px] outline-none"
                 style={{ paddingLeft: "50px" }}
               ></input>
             </div>
@@ -102,7 +102,7 @@ function Login() {
                 name="password"
                 {...register("password")}
                 placeholder="************"
-                className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px]"
+                className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px] outline-none"
                 style={{ paddingLeft: "50px" }}
               ></input>
               <button

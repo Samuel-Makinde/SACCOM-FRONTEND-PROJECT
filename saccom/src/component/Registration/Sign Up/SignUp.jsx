@@ -45,23 +45,42 @@ export default function SignUp() {
     resolver: yupResolver(formSchema),
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-    axios
-      .post(`http://localhost:4000/api/v1/register`, {
+  // const onSubmit = (data, e) => {
+  //    e.preventDefault();
+  //   console.log(data);
+  //   axios
+  //     .post(`http://localhost:4000/api/v1/register`, {
+  //       firstName: data.firstName,
+  //       lastName: data.lastName,
+  //       email: data.email,
+  //       phone: data.phoneNumber,
+  //       password: data.password,
+  //     })
+  //     .then((response) => {
+  //       console.log("sending", response);
+  //     })
+  //     .catch((error) => {
+  //       console.log("not sending", error);
+  //     });
+  // };
+
+  const onSubmit = async (data, e) => {
+  e.preventDefault();
+  console.log(data)
+  try {
+    const response = await axios.post(`https://saccom-backend.onrender.com/api/v1/register`, {
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,
         phone: data.phoneNumber,
         password: data.password,
       })
-      .then((response) => {
-        console.log("sending", response);
-      })
-      .catch((error) => {
-        console.log("not sending", error);
-      });
-  };
+      console.log("success: ",data);
+    console.log("working", response)
+  } catch (error) {
+    console.log(error.message)
+  }
+};
 
   const [passwordVisibile, passwordNotVisible] = useState(false);
   const togglePassword = () => {
@@ -76,15 +95,14 @@ export default function SignUp() {
   return (
     <main className="w-full h-full px-4  font-euclid">
       <div className="w-full h-full">
-        <h1 className="text-[#2F3035] text-[32px] font-bold mt-[1px] md:ml-[56px] header-hi">
+        <h1 className="text-[#2F3035] text-[32px] font-bold mt-[5px] md:ml-[56px] header-hi">
           SACCOM
         </h1>
-        <div className="text-black w-full h-full px-4  md:flex md:justify-center mt-[40px]">
-          <form
-            className="h-full w-full mb-8 md:mb-0 md:h-[726px] md:w-[400px] lg:w-[600px] flex flex-col justify-center items-center md:pr-[60px]"
-            onSubmit={handleSubmit(onSubmit)}
-          >
-            <h1 className="text-[#04050C] text-[20px] md:text-[48px] font-semibold">
+        <div className=" w-full h-full px-4  md:flex md:justify-center mt-[40px]">
+          <div className="h-full w-full mb-8 md:mb-0 md:h-[726px] md:w-[400px] lg:w-[600px] flex flex-col justify-center items-center md:pr-[60px]">
+
+          
+           <h1 className="text-[#04050C] text-[20px] md:text-[48px] font-semibold">
               Create your account
             </h1>
             <p className=" text-[#85868D] text-[16px] text-center leading-[20.29px] pt-[10px] align-middle">
@@ -92,7 +110,10 @@ export default function SignUp() {
               proin tempus. Dolor rhoncus eget platea mi.
             </p>
 
-            <div className="w-full h-full mt-[60px] ">
+          <form
+            className="w-full mt-[60px]"
+            onSubmit={handleSubmit(onSubmit)}
+          >
               <div className="w-full  flex flex-col md:flex-row justify-between  ">
                 <div className="w-full md:w-5/12">
                   <div className="relative  flex flex-col-reverse ">
@@ -109,7 +130,7 @@ export default function SignUp() {
                     <input
                       type="text"
                       id="firstname"
-                      className="  h-[60px] border-2  border-[#B3B4BB] rounded-[5px]"
+                      className="  h-[60px] border-2  border-[#B3B4BB] rounded-[5px] outline-none"
                       name="firstName"
                       {...register("firstName")}
                       placeholder="first name"
@@ -144,7 +165,7 @@ export default function SignUp() {
                     <input
                       type="text"
                       id="lastname"
-                      className=" h-[60px] border-2  border-[#B3B4BB] rounded-[5px]"
+                      className=" h-[60px] border-2  border-[#B3B4BB] rounded-[5px] outline-none"
                       name="lastName"
                       {...register("lastName")}
                       placeholder="last name"
@@ -164,15 +185,6 @@ export default function SignUp() {
                 </div>
               </div>
 
-              {/* <label htmlFor="lastname">last name</label>
-              <input
-                type="text"
-                id="lastname"
-                className={styles.lastName}
-                name="lastName"
-                {...register("lastName")}
-                placeholder="last name"
-              /> */}
 
               <div className="w-full ">
                 <div className=" relative w-full flex flex-col-reverse">
@@ -192,7 +204,7 @@ export default function SignUp() {
                     name="phoneNumber"
                     {...register("phoneNumber")}
                     placeholder="phone number"
-                    className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px]"
+                    className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px] outline-none"
                     style={{ paddingLeft: "50px" }}
                   />
                 </div>
@@ -226,7 +238,7 @@ export default function SignUp() {
                     name="email"
                     {...register("email")}
                     placeholder="email address"
-                    className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px]"
+                    className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px] outline-none"
                     style={{ paddingLeft: "50px" }}
                   />
                 </div>
@@ -240,7 +252,7 @@ export default function SignUp() {
                   {errors.email?.message}
                 </small>
               </div>
-            </div>
+          
 
             <div className="w-full">
               <div className="relative w-full flex flex-col-reverse">
@@ -260,7 +272,7 @@ export default function SignUp() {
                   name="password"
                   {...register("password")}
                   placeholder="********"
-                  className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px]"
+                  className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px] outline-none"
                   style={{ paddingLeft: "50px" }}
                 />
                 <button
@@ -299,7 +311,7 @@ export default function SignUp() {
                   name="cpassword"
                   {...register("cpassword")}
                   placeholder="**********"
-                  className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px]"
+                  className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px] outline-none"
                   style={{ paddingLeft: "50px" }}
                 />
                 <button
@@ -326,7 +338,9 @@ export default function SignUp() {
               <button type="submit">Create Account</button>
             </div>
 
-            <p className="text-[#54555B] text-[12px] mt-[15px] text-center">
+            
+          </form>
+          <p className="text-[#54555B] text-[12px] mt-[15px] text-center">
               By siging up, you agree to the{" "}
               <span className="text-[#4D5DED] cursor-pointer">
                 {" "}
@@ -344,13 +358,14 @@ export default function SignUp() {
               <Link to="/login">
                 <button
                   className="text-[#4D5DED] cursor-pointer"
-                  // onClick={() => props.onFormSwitch("/login")}
                 >
                   login
                 </button>
               </Link>
             </p>
-          </form>
+            <input type="email" name="" id="ema" className="w-full h-[70px] border-2 border-black" />
+            <p>hello</p>
+          </div>
           <div className="hidden md:flex h-[776px] w-[400px] lg:w-[500px]">
             <img src={bedimage} alt="bedImages" />
           </div>

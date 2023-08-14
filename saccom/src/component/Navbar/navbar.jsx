@@ -12,6 +12,7 @@ import cart from "./images/cart.png";
 import search from "./images/search.png";
 import person3 from "./images/personPlaceholder.png";
 import logoImage from "./images/saccum design.svg.png";
+import SearchBar from "../SearchBar/SearchBar";
 
 const Navbar = () => {
   const [toggle, setToggle] = useState(false);
@@ -46,7 +47,6 @@ const Navbar = () => {
           <img src={logoImage} alt="logoImage" />
         </div>
       </Link>
-
       {/* mobile-view-navbar */}
       <ul
         className={`${
@@ -111,24 +111,24 @@ const Navbar = () => {
           </li>
         </Link>
       </ul>
-
       <div className="absolute flex right-2">
         <p className="w-[24px] h-[24px] flex items-center justify-center bg-[#D3D7FB] rounded-[40px] md:hidden">
           <img src={person3} alt="person" />
         </p>
       </div>
-
       {/* big screen topBar */}
-      <div className="hidden md:flex lg:w-[400px] md:w-[250px] h-full items-center justify-center ">
+      {/* <div className="hidden md:flex lg:w-[400px] md:w-[250px] h-full items-center justify-center ">
         <input
           type="text"
           className="relative w-[250px] lg:w-[400px] rounded-[40px] h-[40px] border-solid border-2 border-[#54555B] placeholder-[#B3B4BB] pl-[16px]"
           placeholder="Search through hostels"
+          
         />
         <div className="bg-blue-700 w-[36px] h-[30px] absolute ml-[200px] lg:ml-[350px] rounded-[40px] cursor-pointer">
           <img src={search} alt="search" className="pt-[5px] pl-[6px]" />
         </div>
-      </div>
+      </div> */}
+      <SearchBar />
 
       <div className=" hidden md:flex flex-col w-full h-full items-center justify-center">
         <div className=" w-[150px] lg:w-[150px] flex justify-evenly rounded-[40px] items-center h-[40px] border-solid border-2 border-[#54555B] ">
