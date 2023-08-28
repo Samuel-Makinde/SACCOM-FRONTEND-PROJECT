@@ -95,10 +95,10 @@ export default function SignUp() {
   return (
     <main className="w-full h-full px-4  font-euclid">
       <div className="w-full h-full">
-        <h1 className="text-[#2F3035] text-[32px] font-bold mt-[5px] md:ml-[56px] header-hi">
+        <h1 className="text-[#2F3035] text-[32px] font-bold mt-[5px] md:ml-[56px] ">
           SACCOM
         </h1>
-        <div className=" w-full h-full px-4  md:flex md:justify-center mt-[40px]">
+        <div className="w-full h-full px-4  md:flex md:justify-center mt-[40px] ">
           <div className="h-full w-full mb-8 md:mb-0 md:h-[726px] md:w-[400px] lg:w-[600px] flex flex-col justify-center items-center md:pr-[60px]">
 
           
@@ -363,12 +363,11 @@ export default function SignUp() {
                 </button>
               </Link>
             </p>
-            <input type="email" name="" id="ema" className="w-full h-[70px] border-2 border-black" />
-            <p>hello</p>
+            
           </div>
-          <div className="hidden md:flex h-[776px] w-[400px] lg:w-[500px]">
+          {/* <div className="hidden md:flex h-[776px] w-[400px] lg:w-[500px]">
             <img src={bedimage} alt="bedImages" />
-          </div>
+          </div> */}
         </div>
       </div>
     </main>

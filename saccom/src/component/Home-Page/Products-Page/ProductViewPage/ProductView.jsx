@@ -202,7 +202,7 @@ const ProductView = ({ title, url }) => {
                     onClick={() => addToCart(product)}
                     className="bg-[#4D5DED]  w-[328px] p-[8px] rounded-[12px] text-white"
                   >
-                    Add to inspect cart
+                    Book to inspect
                   </button>
                 </div>
                 <div className="w-full flex">
@@ -235,7 +235,7 @@ const ProductView = ({ title, url }) => {
                       onClick={() => addToCart(product)}
                       className="p-[8px] "
                     >
-                      Add to inspect cart
+                      Book to inspect
                     </button>
                   </div>
                 </div>

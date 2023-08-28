@@ -66,7 +66,7 @@ const CartPage = () => {
                           <div className="text-[#54555B] flex  md:mt-[5px]">
                             <RiPinDistanceLine size={20} className="mt-[5px]" />
                             <p className=" md:text-[16px] leading--[20.29px] ml-[5px] ">
-                              30 mins walk from main gate
+                              {product.time_in_mins_from_gate} mins walk from main gate
                             </p>
                           </div>
                         </div>
@@ -153,7 +153,7 @@ const CartPage = () => {
 
             <div className="w-full h-[50px] flex justify-center  mt-[80px] ">
               <button className="w-[328px] flex justify-center  bg-[#4D5DED] text-[#FFFFFF] text-[20px] font-medium p-[8px] rounded-[12px] ">
-                <p> Proceed to pay </p>
+                <p> Proceed to make appointment </p>
                 <AiOutlineArrowRight size={24} className="mt-[5px] ml-[10px]" />
               </button>
             </div>

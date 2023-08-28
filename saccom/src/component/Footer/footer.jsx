@@ -1,9 +1,11 @@
-import styles from "./footer.module.css";
+// import styles from "./footer.module.css";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { FiTwitter } from "react-icons/fi";
 import { RiLinkedinLine } from "react-icons/ri";
 import Backtotop from "../Back-to-top/backtotop";
 import { Link } from "react-router-dom";
+import SACCOM from '../Navbar/images/saccum design.svg.png'
+
 
 const Footer = () => {
   return (
@@ -15,9 +17,11 @@ const Footer = () => {
       <div className="bg-[#FFFFFF] md:grid   md:grid-cols-4 md:gap-x-1 font-euclid font-normal w-full h-[450px] md:h-[150px] text-black pt-[35px]">
         <div className="pl-[15px] w-full lg:pl-[83px] md:pl-[20px] md:flex md:w-1/4">
           <div>
-            <h1 className={`${styles.header} text-[32px] leading-[36.27px]`}>
-              SACCOM
-            </h1>
+            <Link to="/">
+        <div className=" h-[24px] md:w-[175px] md:h-[50px]  cursor-pointer ">
+          <img src={SACCOM} alt="saccom" />
+        </div>
+      </Link>
             <p className="hidden md:flex text-[#2F3035] text-[12px] pt-[10px]">
               {" "}
               All rights reserved. © 2023
