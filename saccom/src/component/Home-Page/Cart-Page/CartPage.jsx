@@ -14,7 +14,7 @@ const CartPage = () => {
     return message;
   };
 
-  const phoneNumber = "+2348129577490"; // Replace with the recipient's WhatsApp number
+  const phoneNumber = "+2349061814601"; // Replace with the recipient's WhatsApp number
 
   // Construct the WhatsApp message link
   const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
