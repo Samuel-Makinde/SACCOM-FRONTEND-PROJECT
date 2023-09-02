@@ -4,6 +4,24 @@ import { AiOutlineInfoCircle, AiOutlineArrowRight } from "react-icons/ai";
 
 const CartPage = () => {
   const { products, cart, removeFromCart } = useGlobalContext();
+
+  // to add whatsapp id to the proceed to pay message
+  const createWhatsAppMessage = () => {
+    const productIds = cart.map((item) => item.id);
+    const message = `Hi SACCOM, I'm interested in the following apartments with ID:\n${productIds.join(
+      ", "
+    )}`;
+    return message;
+  };
+
+  const phoneNumber = "+2348129577490"; // Replace with the recipient's WhatsApp number
+
+  // Construct the WhatsApp message link
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    createWhatsAppMessage()
+  )}`;
+
+
   return (
     <main className="w-full h-full px-4 md:px-10 pt-[70px] md:pt-[100px]">
       <div className="w-full h-full font-euclid">
@@ -151,12 +169,14 @@ const CartPage = () => {
               </div>
             </div>
 
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
             <div className="w-full h-[50px] flex justify-center  mt-[80px] ">
               <button className="w-[328px] flex justify-center  bg-[#4D5DED] text-[#FFFFFF] text-[20px] font-medium p-[8px] rounded-[12px] ">
                 <p> Proceed to make appointment </p>
                 <AiOutlineArrowRight size={24} className="mt-[5px] ml-[10px]" />
               </button>
             </div>
+            </a>
           </div>
         </div>
       </div>
