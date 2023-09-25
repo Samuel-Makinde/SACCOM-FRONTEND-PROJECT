@@ -7,6 +7,10 @@ import { IoIosArrowBack } from "react-icons/io";
 import PropTypes from "prop-types";
 import { useWindowSize } from "react-use";
 import { useParams, useNavigate } from "react-router-dom";
+import Slider from "react-slick";
+import styles from "../../ImageSlider/imageSlider.module.css";
+
+
 
 const ProductView = ({ title, url }) => {
   const { products, addToCart, addToSave } = useGlobalContext();
@@ -16,7 +20,16 @@ const ProductView = ({ title, url }) => {
   console.log("this is the product Id", productId);
 
   // const parsedProductId = parseInt(productId);
-
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    cssEase: "linear",
+  };
   const product = products.find(
     (product) => product.id === parseInt(productId)
   );
@@ -95,7 +108,7 @@ const ProductView = ({ title, url }) => {
                 </p>
               </div>
 
-              <div className="z-10 absolute md:relative w-full h-full md:w-[200px] top-[80px]  md:top-0 md:right-0 text-[#4D5DED] md:text-[#54555B] text-[16px] ">
+              <div className="z-10 absolute md:relative w-full h-full md:w-[200px] top-[80px] mt-5 px-3   md:top-0 md:right-0 text-[#4D5DED] md:text-[#54555B] text-[16px] ">
                 <div className="w-full flex justify-between px-4 md:px-0 ">
                   <div
                     className="w-[24px] h-[24px] cursor-pointer md:hidden bg-[#EDEFFD] rounded-[40px] flex items-center justify-center"
@@ -139,8 +152,8 @@ const ProductView = ({ title, url }) => {
                 </div>
               </div>
             </div>
-
-            <div className="relative w-full h-[236px] md:h-[524px] md:grid grid-cols-4 grid-rows-2 md:mt-[30px]">
+            <div className="hidden md:block">
+            <div className="relative w-full h-[236px]   md:h-[524px] md:grid grid-cols-4 grid-rows-2 md:mt-[30px]">
               <img
                 className=" w-full h-[236px] md:h-full md:row-span-2 md:col-span-2 md:rounded-l-[12px] md:pr-[15px]"
                 src={product.apartment_sub_images[0]}
@@ -167,7 +180,53 @@ const ProductView = ({ title, url }) => {
                 alt={product.apartment_name}
               />
             </div>
+            </div>
+           
+            <main className={styles.container } >
+        <div className="relative md:hidden mt-0 h-4/5">
+      <Slider {...settings}>
+        <div className="relative w-full h-full border-none  font-euclid">
+          <img
+            className={`rounded-[10px] h-4/5 md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            src={product.apartment_sub_images[0]}
+            alt="hotel"
+          />
+          
+        </div>
+        <div className="w-full h-full border-none">
+          <img
+            className={`rounded-[10px] h-4/5 md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            src={product.apartment_sub_images[1]}
+            alt="hotel"
+          />
+        </div>
+        <div className="w-full h-full border-none">
+          <img
+            className={`rounded-[10px] h-4/5 md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            src={product.apartment_sub_images[2]}
+            alt="hotel"
+          />
+        </div>
+        <div className="w-full h-full border-none">
+          <img
+            className={`rounded-[10px] h-4/5 md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            src={product.apartment_sub_images[3]}
+            alt="hotel"
+          />
+        </div>
+        <div className="w-full h-full border-none">
+          <img
+            className={`rounded-[30px] h-4/5 md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            src={product.apartment_sub_images[4]}
+            alt="hotel"
+          />
+        </div>
+      </Slider>
+      </div>
+    </main>
           </div>
+
+
 
           {/* To get accomodation type, price and add to cart*/}
           <div className="w-full h-full mt-[20px] px-4 md:px-0 ">
