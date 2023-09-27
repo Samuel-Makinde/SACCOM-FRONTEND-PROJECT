@@ -9,7 +9,7 @@ import styles from "./imageSlider.module.css";
 
 const ImageSlider = () => {
   const settings = {
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 1000,
     slidesToShow: 1,
@@ -23,6 +23,7 @@ const ImageSlider = () => {
       <Slider {...settings}>
         <div className="relative w-full h-full border-none font-euclid">
           <img
+            style={{ filter: 'brightness(40%)'}}
             className={`rounded-[30px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
             src={apartment2}
             alt="hotel"

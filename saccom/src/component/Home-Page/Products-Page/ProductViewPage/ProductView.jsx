@@ -23,7 +23,7 @@ const ProductView = ({ title, url }) => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 1000,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -216,7 +216,7 @@ const ProductView = ({ title, url }) => {
         </div>
         <div className="w-full h-full border-none">
           <img
-            className={`rounded-[30px] h-4/5 md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            className={`rounded-[10px] h-4/5 md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
             src={product.apartment_sub_images[4]}
             alt="hotel"
           />
@@ -289,12 +289,12 @@ const ProductView = ({ title, url }) => {
                     </p>
                   </div>
 
-                  <div className="w-[150px] h-full bg-[#4D5DED] rounded-[12px] text-white ">
+                  <div className="w-[150px] h-full bg-[#4D5DED] rounded-[12px] text-white text-center">
                     <button
                       onClick={() => addToCart(product)}
                       className="p-[8px] "
                     >
-                      Book to inspect
+                      add to interests
                     </button>
                   </div>
                 </div>
@@ -311,6 +311,7 @@ const ProductView = ({ title, url }) => {
                 <h3 className="text-[#2F3035] text-[24px] font-semibold leading-[30.43px] md:text-[48px] md:leading-[60.82px]">
                   Description
                 </h3>
+                <video className="h-4/5 mt-4" style={{objectFit:"cover", width:"100%", height:"40vh"}} src={product.apartment_video} autoplay controls  loop muted preload="metadata"></video>
                 <p className="text-[#85868D] font-normal text-[16px] leading-[20.29px] mt-[10px]">
                   {product.apartment_full_description}
                 </p>

@@ -86,7 +86,7 @@ const Navbar = () => {
         <Link to="/cart">
           <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
             <img src={cart} alt="cart" className="cursor-pointer" />
-            <h1 className="pl-[10px] cursor-pointer">Cart</h1>
+            <h1 className="pl-[10px] cursor-pointer">Interests</h1>
           </li>
         </Link>
 

@@ -32,7 +32,7 @@ const Footer = () => {
 
         <div className="pl-[15px] md:flex pt-[25px] md:pl-0 md:pt-0 md:ml-[30px] md:w-1/4">
           <div>
-            <p className="text-[20px]">Follow us</p>
+            <p className="text-[15px] mt-3">Follow us</p>
             <div className="flex justify-between w-[120px] pt-[15px] ">
               <AiOutlineInstagram size={26} className="cursor-pointer" />
               <FiTwitter size={26} className="cursor-pointer" />
