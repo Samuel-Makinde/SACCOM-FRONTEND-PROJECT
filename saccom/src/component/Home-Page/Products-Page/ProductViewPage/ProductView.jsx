@@ -3,12 +3,16 @@ import { RiPinDistanceLine } from "react-icons/ri";
 import { BsShare } from "react-icons/bs";
 import { BiBookmark } from "react-icons/bi";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import PropTypes from "prop-types";
 import { useWindowSize } from "react-use";
 import { useParams, useNavigate } from "react-router-dom";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+// import Slider from "react-slick";
 import styles from "../../ImageSlider/imageSlider.module.css";
+import { useRef } from "react";
 
 
 
@@ -23,13 +27,39 @@ const ProductView = ({ title, url }) => {
   const settings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 7000,
     cssEase: "linear",
+    swipe: true, 
   };
+
+  const sliderRef = useRef(null); // Create a ref for the slider component
+
+// Next button click handler
+const handleNext = () => {
+  if (sliderRef.current) {
+    sliderRef.current.slickNext(); // Move to the next slide
+  }
+};
+
+// Previous button click handler
+const handlePrev = () => {
+  if (sliderRef.current) {
+    sliderRef.current.slickPrev(); // Move to the previous slide
+  }
+};
+
+
+
+
+
+
+
+
+  // to find the particular product
   const product = products.find(
     (product) => product.id === parseInt(productId)
   );
@@ -84,9 +114,9 @@ const ProductView = ({ title, url }) => {
         {/* {warning && <div className="absolute z-50 text-[100px]">Item already in cart</div> } */}
         {/* {products.map((product, index) => { */}
         {/* if (index === 0) { */}
-        <div key={product.id} className="w-full h-full  md:px-10">
+        <div key={product.id} className="w-full h-full md:px-10">
           <div className="w-full h-full flex flex-col-reverse md:flex-none md:flex-col">
-            <div className="w-full h-full px-4 md:px-0">
+            <div className="w-full h-full px-4 md:px-0 mt-[80px] md:mt-0">
               <h1 className="text-[24px] font-semibold leading-[30.43px] md:text-[48px] text-[#2F3035] md:leading-[60px] ">
                 {product.apartment_name}
               </h1>
@@ -154,11 +184,12 @@ const ProductView = ({ title, url }) => {
             </div>
             <div className="hidden md:block">
             <div className="relative w-full h-[236px]   md:h-[524px] md:grid grid-cols-4 grid-rows-2 md:mt-[30px]">
-              <img
+              {/* <img
                 className=" w-full h-[236px] md:h-full md:row-span-2 md:col-span-2 md:rounded-l-[12px] md:pr-[15px]"
                 src={product.apartment_sub_images[0]}
                 alt={product.apartment_name}
-              />
+              /> */}
+              <video className=" w-full h-[236px] md:h-full md:row-span-2 md:col-span-2 md:rounded-l-[12px] md:pr-[15px]" style={{objectFit:"cover", width:"100%", height:"86vh"}} src={product.apartment_video} autoPlay controls  loop muted preload="metadata"></video>
               <img
                 className="hidden md:flex md:h-[254px] md:pr-[15px] "
                 src={product.apartment_sub_images[1]}
@@ -183,11 +214,11 @@ const ProductView = ({ title, url }) => {
             </div>
            
             <main className={styles.container } >
-        <div className="relative md:hidden mt-0 h-4/5">
-      <Slider {...settings}>
-        <div className="relative w-full h-full border-none  font-euclid">
+        <div className="relative md:hidden mt-0 h-[280px]">
+      <Slider ref={sliderRef} {...settings}>
+        <div className="relative w-full h-full border-none  ">
           <img
-            className={`rounded-[10px] h-4/5 md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            className={` h-[300px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
             src={product.apartment_sub_images[0]}
             alt="hotel"
           />
@@ -195,41 +226,60 @@ const ProductView = ({ title, url }) => {
         </div>
         <div className="w-full h-full border-none">
           <img
-            className={`rounded-[10px] h-4/5 md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
             src={product.apartment_sub_images[1]}
             alt="hotel"
           />
         </div>
         <div className="w-full h-full border-none">
           <img
-            className={`rounded-[10px] h-4/5 md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
             src={product.apartment_sub_images[2]}
             alt="hotel"
           />
         </div>
         <div className="w-full h-full border-none">
           <img
-            className={`rounded-[10px] h-4/5 md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
             src={product.apartment_sub_images[3]}
             alt="hotel"
           />
         </div>
         <div className="w-full h-full border-none">
           <img
-            className={`rounded-[10px] h-4/5 md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
             src={product.apartment_sub_images[4]}
             alt="hotel"
           />
         </div>
       </Slider>
+      <div>
+
       </div>
+      </div>
+      <div className="md:hidden absolute top-[380px] left-[40%] transform -translate-x-1/2 -translate-y-1/2 z-30">
+            <div
+              className="w-[34px] h-[34px] bg-[#EDEFFD] rounded-[40px] flex items-center justify-center cursor-pointer"
+              onClick={handlePrev}
+            >
+              <IoIosArrowBack size={26} className="text-blue-600" />
+            </div>
+        </div>
+        <div className="md:hidden absolute top-[380px] right-[40%] transform -translate-x-1/2 -translate-y-1/2 z-30">
+            <div
+              className="w-[34px] h-[34px] bg-[#EDEFFD] rounded-[40px] flex items-center justify-center cursor-pointer"
+              onClick={handleNext}
+            >
+              <IoIosArrowForward size={26} className="text-blue-600" />
+            </div>
+        </div>
     </main>
           </div>
 
 
 
           {/* To get accomodation type, price and add to cart*/}
-          <div className="w-full h-full mt-[20px] px-4 md:px-0 ">
+          <div className="w-full h-full mt-[20px] px-4 md:px-0  ">
             <div className="w-full h-full md:flex justify-between">
               <div className="flex flex-wrap ">
                 {product.appartment_attributes.map((info, index) => (
@@ -311,7 +361,7 @@ const ProductView = ({ title, url }) => {
                 <h3 className="text-[#2F3035] text-[24px] font-semibold leading-[30.43px] md:text-[48px] md:leading-[60.82px]">
                   Description
                 </h3>
-                <video className="h-4/5 mt-4" style={{objectFit:"cover", width:"100%", height:"40vh"}} src={product.apartment_video} autoplay controls  loop muted preload="metadata"></video>
+                <video className="h-4/5 mt-4 md:hidden" style={{objectFit:"cover", width:"100%", height:"40vh"}} src={product.apartment_video} autoplay controls  loop muted preload="metadata"></video>
                 <p className="text-[#85868D] font-normal text-[16px] leading-[20.29px] mt-[10px]">
                   {product.apartment_full_description}
                 </p>

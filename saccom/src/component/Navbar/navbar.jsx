@@ -35,7 +35,7 @@ const Navbar = () => {
     <main className="fixed w-full h-[60px] md:h-[90px] flex items-center md:grid md:grid-cols-3 md:gap-4 px-4 bg-white z-20 font-euclid">
       <div onClick={handleToggle} className="md:hidden z-10">
         {toggle ? (
-          <div className="w-[32px] h-[32px] bg-[#EDEFFD] cursor-pointer flex justify-center items-center rounded-[20px]">
+          <div className="w-[32px] h-[32px] bg-[#EDEFFD] cursor-pointer flex justify-center items-center rounded-[20px] transform  ease-in-out duration-500 delay-300">
             <FaTimes className="text-[#54555B] w-[18px] h-[16px]   transition-transform ease-in-out delay-1000 duration-1000 transform hover:scale-110" />
           </div>
         ) : (
@@ -49,8 +49,7 @@ const Navbar = () => {
       </Link>
       {/* mobile-view-navbar */}
       <ul
-        className={`${
-          toggle ? "block" : "hidden"
+        className={`transform  ease-in-out duration-500 delay-300 ${ toggle ? "translate-x-0" : "-translate-x-full"
         } w-3/4 bg-white absolute top-0 left-0 h-screen md:hidden flex flex-col  pt-[100px]   ${
           styles.mobile
         }`}
