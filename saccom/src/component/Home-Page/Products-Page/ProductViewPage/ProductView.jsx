@@ -189,7 +189,9 @@ const handlePrev = () => {
                 src={product.apartment_sub_images[0]}
                 alt={product.apartment_name}
               /> */}
+              <div  className=" w-full h-[236px] md:h-full md:block hidden md:row-span-2 md:col-span-2 md:rounded-l-[12px] md:pr-[15px]" >
               <video className=" w-full h-[236px] md:h-full md:row-span-2 md:col-span-2 md:rounded-l-[12px] md:pr-[15px]" style={{objectFit:"cover", width:"100%", height:"86vh"}} src={product.apartment_video} autoPlay controls  loop muted preload="metadata"></video>
+              </div>
               <img
                 className="hidden md:flex md:h-[254px] md:pr-[15px] "
                 src={product.apartment_sub_images[1]}

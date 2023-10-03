@@ -26,7 +26,10 @@ const Navbar = () => {
     setLgToggle(false);
     console.log("removing toggle");
   };
-
+  
+  const makeTogLeave =()=>{
+    setLgToggle(false)
+  }
   // To set mobile navbar toggle
   const handleToggle = () => {
     setToggle(!toggle);
@@ -43,7 +46,7 @@ const Navbar = () => {
         )}
       </div>
       <Link to="/">
-        <div className="w-[93px] h-[24px] md:w-[175px] md:h-[50px] ml-[20px] cursor-pointer ">
+        <div  className="w-[93px] h-[24px] md:w-[175px] md:h-[50px] ml-[20px] cursor-pointer ">
           <img src={logoImage} alt="logoImage" />
         </div>
       </Link>
@@ -54,8 +57,8 @@ const Navbar = () => {
           styles.mobile
         }`}
       >
-        <Link to="/signup">
-          <li className="text-[#04050C] leading-[20px] text-[16px] flex px-[24px] py-[16px]  font-medium">
+        <Link  to="/signup">
+          <li  className="text-[#04050C] leading-[20px] text-[16px] flex px-[24px] py-[16px]  font-medium">
             <img src={person1} alt="account" className="cursor-pointer" />
             <h1 className="pl-[10px] cursor-pointer">Create account</h1>
           </li>
@@ -69,21 +72,21 @@ const Navbar = () => {
         </Link>
 
         <Link to="/">
-          <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
+          <li onClick={handleToggle}  className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
             <AiOutlineHome size={20} />
             <h1 className="pl-[10px] cursor-pointer">Home</h1>
           </li>
         </Link>
 
-        <Link to="/savedproduct">
-          <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
+        <Link  to="/savedproduct">
+          <li onClick={handleToggle}  className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
             <img src={love} alt="cart" className="cursor-pointer" />
             <h1 className="pl-[7px] cursor-pointer">Saved hostel</h1>
           </li>
         </Link>
 
         <Link to="/cart">
-          <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
+          <li onClick={handleToggle}  className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
             <img src={cart} alt="cart" className="cursor-pointer" />
             <h1 className="pl-[10px] cursor-pointer">Interests</h1>
           </li>
@@ -92,7 +95,7 @@ const Navbar = () => {
         <li className=" flex border-b-2 mt-[10px] border-b-[#D4D5DB] mx-[15px] "></li>
 
         <Link to="/about">
-          <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
+          <li onClick={handleToggle}  className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
             <img src={aboutUs} alt="about" className="cursor-pointer" />
             <h1 className="pl-[10px] cursor-pointer">About us</h1>
           </li>
@@ -104,7 +107,7 @@ const Navbar = () => {
         </li> */}
 
         <Link to="/staff">
-          <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
+          <li onClick={handleToggle}  className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
             <img src={staffs} alt="staffs" className="cursor-pointer" />
             <h1 className="pl-[10px] cursor-pointer">Staff page</h1>
           </li>
@@ -133,6 +136,7 @@ const Navbar = () => {
         <div className=" w-[150px] lg:w-[150px] flex justify-evenly rounded-[40px] items-center h-[40px] border-solid border-2 border-[#54555B] ">
           <div className="relative">
             <p
+              onClick={makeTogLeave}
               onMouseOver={handleMouseOver}
               className="w-[18px] h-[16px] mr-[3px] cursor-pointer "
             >
@@ -145,20 +149,20 @@ const Navbar = () => {
               >
                 <ul className="mr-[20px] bg-white rounded-[24px] shadow-2xl ">
                   <Link to="/signup">
-                    <li className="flex text-[#54555B] leading-[20px] text-[16px]   px-[24px] py-[16px] font-normal">
+                    <li className="flex text-[#54555B] hover:text-blue-600  leading-[20px] text-[16px]   px-[24px] py-[16px] font-normal">
                       <img
                         src={person1}
                         alt="account"
                         className="cursor-pointer"
                       />
-                      <h1 className="pl-[10px] cursor-pointer">
+                      <h1 className="pl-[10px]  cursor-pointer">
                         Create account
                       </h1>
                     </li>
                   </Link>
 
                   <Link to="/login">
-                    <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal">
+                    <li className="text-[#54555B] hover:text-blue-600 leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal">
                       <img
                         src={person2}
                         alt="login"
@@ -169,23 +173,23 @@ const Navbar = () => {
                   </Link>
 
                   <Link to="/">
-                    <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
+                    <li className="text-[#54555B]  leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
                       <AiOutlineHome size={20} />
-                      <h1 className="pl-[10px] cursor-pointer">Home</h1>
+                      <h1 className="pl-[10px] hover:text-blue-600 cursor-pointer">Home</h1>
                     </li>
                   </Link>
 
                   <Link to="/savedproduct">
                     <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
                       <img src={love} alt="cart" className="cursor-pointer" />
-                      <h1 className="pl-[7px] cursor-pointer">Saved hostel</h1>
+                      <h1 className="pl-[7px] cursor-pointer hover:text-blue-600">Saved hostel</h1>
                     </li>
                   </Link>
 
                   <Link to="/cart">
                     <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
                       <img src={cart} alt="cart" className="cursor-pointer" />
-                      <h1 className="pl-[10px] cursor-pointer">Cart</h1>
+                      <h1 className="pl-[10px] cursor-pointer hover:text-blue-600">Cart</h1>
                     </li>
                   </Link>
 
@@ -198,7 +202,7 @@ const Navbar = () => {
                         alt="about"
                         className="cursor-pointer"
                       />
-                      <h1 className="pl-[10px] cursor-pointer">About us</h1>
+                      <h1 className="pl-[10px] hover:text-blue-600 cursor-pointer">About us</h1>
                     </li>
                   </Link>
 
@@ -218,7 +222,7 @@ const Navbar = () => {
                         alt="staffs"
                         className="cursor-pointer"
                       />
-                      <h1 className="pl-[10px] cursor-pointer">Staff page</h1>
+                      <h1 className="pl-[10px] cursor-pointer hover:text-blue-600">Staff page</h1>
                     </li>
                   </Link>
                 </ul>

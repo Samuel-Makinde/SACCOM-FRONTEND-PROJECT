@@ -38,7 +38,7 @@ const SavedProduct = () => {
         <div className="border-b-[2px] border-b-[#D4D5DB] mt-[40px]"></div>
         <div className="w-full h-full ">
           {savedProduct.length === 0 ? (
-            <h2 className="text-[#2F3035] w-full  text-[16px] md:text-[48px] mt-[10px] font-semibold">
+            <h2 className="text-[#2F3035] w-full  text-[16px] md:text-[32px] mt-[10px] font-semibold">
               No product has been saved
             </h2>
           ) : (

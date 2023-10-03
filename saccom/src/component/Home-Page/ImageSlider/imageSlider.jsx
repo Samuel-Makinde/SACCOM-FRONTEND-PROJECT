@@ -9,13 +9,13 @@ import styles from "./imageSlider.module.css";
 
 const ImageSlider = () => {
   const settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 5000,
+    autoplaySpeed: 10000,
     cssEase: "linear",
   };
   return (
@@ -24,7 +24,7 @@ const ImageSlider = () => {
         <div className="relative w-full h-full border-none font-euclid">
           <img
             style={{ filter: 'brightness(40%)'}}
-            className={`rounded-[30px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            className={`md:rounded-[0px] rounded-[30px] md:rounded-none  border-none ${styles.imageContainer}`}
             src={apartment2}
             alt="hotel"
           />
@@ -36,28 +36,28 @@ const ImageSlider = () => {
         </div>
         <div className="w-full h-full border-none">
           <img
-            className={`rounded-[30px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            className={` md:rounded-[0px] rounded-[30px] md:rounded-none   border-none ${styles.imageContainer}`}
             src={apartment3}
             alt="hotel"
           />
         </div>
         <div className="w-full h-full border-none">
           <img
-            className={`rounded-[30px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            className={`md:rounded-[0px] rounded-[30px] md:rounded-none   border-none ${styles.imageContainer}`}
             src={apartment1}
             alt="hotel"
           />
         </div>
         <div className="w-full h-full border-none">
           <img
-            className={`rounded-[30px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            className={`md:rounded-[0px] rounded-[30px] md:rounded-none   border-none ${styles.imageContainer}`}
             src={apartment2}
             alt="hotel"
           />
         </div>
         <div className="w-full h-full border-none">
           <img
-            className={`rounded-[30px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+            className={`md:rounded-[0px] rounded-[30px] md:rounded-none  border-none ${styles.imageContainer}`}
             src={apartment3}
             alt="hotel"
           />

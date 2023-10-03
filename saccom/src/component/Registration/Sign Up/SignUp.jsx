@@ -10,7 +10,7 @@ import { BsTelephone } from "react-icons/bs";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiKey } from "react-icons/bi";
 // import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link , useNavigate} from "react-router-dom";
 
 // import GmailRegistration from "./GmailRegistration";
 
@@ -37,6 +37,7 @@ const formSchema = yup.object().shape({
 });
 
 export default function SignUp() {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
@@ -95,7 +96,7 @@ export default function SignUp() {
   return (
     <main className="w-full h-full px-4  font-euclid">
       <div className="w-full h-full">
-        <h1 className="text-[#2F3035] text-[32px] font-bold mt-[5px] md:ml-[56px] ">
+        <h1 on onClick={()=> navigate('/')} className={`text-[#2F3035] text-[32px] font-bold mt-[5px] md:ml-[56px] ${styles.header}`}>
           SACCOM
         </h1>
         <div className="w-full h-full px-4  md:flex md:justify-center mt-[40px] ">

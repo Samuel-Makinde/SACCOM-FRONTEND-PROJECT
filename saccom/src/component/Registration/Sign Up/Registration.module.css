@@ -13,7 +13,9 @@
 /* .header-hi {
     font-family: 'Aclonica', sans-serif;
 } */
-
+.header{
+    font-family: 'Aclonica', sans-serif;
+}
 
 .errorContainer {
     height: 1.5rem;
