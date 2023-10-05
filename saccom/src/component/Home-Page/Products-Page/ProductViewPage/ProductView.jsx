@@ -259,7 +259,7 @@ const handlePrev = () => {
 
       </div>
       </div>
-      <div className="md:hidden absolute top-[380px] left-[35%] transform -translate-x-1/2 -translate-y-1/2 z-30">
+      <div className="md:hidden absolute top-[380px] left-[35%] transform -translate-x-1/2 -translate-y-1/2 z-10">
             <div
               className="w-[34px] h-[34px] bg-[#EDEFFD] rounded-[40px] flex items-center justify-center cursor-pointer"
               onClick={handlePrev}
@@ -267,7 +267,7 @@ const handlePrev = () => {
               <IoIosArrowBack size={26} className="text-blue-600" />
             </div>
         </div>
-        <div className="md:hidden absolute top-[380px] right-[35%] transform -translate-x-1/2 -translate-y-1/2 z-30">
+        <div className="md:hidden absolute top-[380px] right-[35%] transform -translate-x-1/2 -translate-y-1/2 z-10">
             <div
               className="w-[34px] h-[34px] bg-[#EDEFFD] rounded-[40px] flex items-center justify-center cursor-pointer"
               onClick={handleNext}
@@ -277,7 +277,7 @@ const handlePrev = () => {
         </div>
     </main>
           </div>
-          {/* BANIEX TESTING IF E GO PUSH */}
+          {/* BANIEX TESTING /}
 
 
 
