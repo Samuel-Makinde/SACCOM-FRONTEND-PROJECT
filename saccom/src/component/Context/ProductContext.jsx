@@ -70,9 +70,18 @@ const ProductProvider = ({ children }) => {
   };
 
   const addToCart = (item) => {
+    // Check if the item already exists in the cart based on its id
+
+    const itemExists = cart.some((cartItem) => cartItem.id === item.id);
+    if(!itemExists){
+      // If the item doesn't exist in the cart, add it
     setCart([...cart, item]);
     console.log(item, "item added");
-  };
+    } else{
+      // If the item exists, don't add it
+    console.log(item, "item already exists in cart");
+    }
+  }
 
   const removeFromCart = (itemId) => {
     setCart((prev) => prev.filter((item) => item.id !== itemId));
