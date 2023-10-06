@@ -314,7 +314,8 @@ const handlePrev = () => {
               <div className="hidden md:flex md:flex-col md:w-[450px] h-full">
                 <div className="w-full h-full flex flex-col justify-start text-right">
                   <h2 className="text-[32px] font-semibold text-[#54555B] leading-[40.52px]">
-                    ${product.rent_price}
+                    {"\u20A6"}
+                    {product.rent_price}
                   </h2>
                   <p className="text-[#54555B] text-[16px] leading-[20.29px]">
                     Per year
@@ -326,7 +327,7 @@ const handlePrev = () => {
                     onClick={() => addToCart(product)}
                     className="bg-[#4D5DED]  w-[328px] p-[8px] rounded-[12px] text-white"
                   >
-                    Book to inspect
+                    Add to Interests
                   </button>
                 </div>
                 <div className="w-full flex">
@@ -347,7 +348,8 @@ const handlePrev = () => {
                 <div className="w-full h-full  mt-[20px] flex  justify-between">
                   <div className="w-[200px] h-full flex flex-col">
                     <h2 className="text-[24px] font-semibold  text-[#54555B] md:leading-[30.43px]">
-                      ${product.rent_price}
+                      {"\u20A6"}
+                      {product.rent_price}
                     </h2>
                     <p className="text-[#54555B] text-[16px] leading-[20.29px]">
                       Per year
@@ -365,7 +367,7 @@ const handlePrev = () => {
                       <button
                         // onClick={() => addToCart(product)}
                         className="p-[8px] "
-                        onClick={()=> removeFromCart(product.id)}
+                        onClick={() => removeFromCart(product.id)}
                       >
                         Remove from interests
                       </button>
