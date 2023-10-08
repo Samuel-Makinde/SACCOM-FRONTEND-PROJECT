@@ -11,7 +11,7 @@ const SearchBar = ({ onSearch }) => {
     onSearch(newSearch);
   };
 
-  console.log(search);
+  // console.log(search);
   return (
     <main>
       <div className="hidden md:flex lg:w-[400px] md:w-[250px] h-full items-center justify-center ">

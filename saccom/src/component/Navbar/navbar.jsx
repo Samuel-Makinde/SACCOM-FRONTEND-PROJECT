@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AiOutlineHome } from "react-icons/ai";
@@ -18,6 +18,34 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [lgtoggle, setLgToggle] = useState(false);
 
+  const navbarRef = useRef(null);
+
+
+  // const handleClickOutside = (event) => {
+  //     console.log("j")
+  //      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+  //        // Clicked outside the navbar
+  //        setToggle(false); // Close the navbar
+  //      }
+  //      console.log("hallelujah")
+  // };
+
+
+
+
+
+
+
+  // if(!toggle){
+    
+  //   document.addEventListener("click", handleClickOutside);
+  //   // document.removeEventListener("click", handleClickOutside);
+
+
+
+  // }
+
+
   const handleMouseOver = () => {
     setLgToggle(true);
     console.log("calling toggle");
@@ -32,10 +60,47 @@ const Navbar = () => {
   }
   // To set mobile navbar toggle
   const handleToggle = () => {
+    console.log(toggle)
     setToggle(!toggle);
+    
+    console.log("toggle vale", toggle)
   };
+
+   useEffect(() => {
+    console.log("use effect")
+     const handleClickOutside = (event) => {
+      console.log("handle click");
+       if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+         // Clicked outside the navbar
+        //  setToggle(false); // Close the navbar
+        console.log("inner")
+       document.removeEventListener("click", handleClickOutside);
+
+       }
+     };
+
+
+     if (toggle) {
+      console.log(toggle)
+       document.addEventListener("click", handleClickOutside);
+     } else {
+       document.removeEventListener("click", handleClickOutside);
+     }
+
+     // Cleanup the event listener when the component unmounts
+     return () => {
+       document.removeEventListener("click", handleClickOutside);
+     };
+   }, [toggle]);
+
+
+
+
+ 
+
+
   return (
-    <main className="fixed w-full h-[60px] md:h-[90px] flex items-center md:grid md:grid-cols-3 md:gap-4 px-4 bg-white z-20 font-euclid">
+    <main ref={navbarRef} className="fixed w-full h-[60px] md:h-[90px] flex items-center md:grid md:grid-cols-3 md:gap-4 px-4 bg-white z-20 font-euclid ">
       <div onClick={handleToggle} className="md:hidden z-10">
         {toggle ? (
           <div className="w-[32px] h-[32px] bg-[#EDEFFD] cursor-pointer flex justify-center items-center rounded-[20px] transform  ease-in-out duration-500 delay-300">
@@ -46,19 +111,20 @@ const Navbar = () => {
         )}
       </div>
       <Link to="/">
-        <div  className="w-[93px] h-[24px] md:w-[175px] md:h-[50px] ml-[20px] cursor-pointer ">
+        <div className="w-[93px] h-[24px] md:w-[175px] md:h-[50px] ml-[20px] cursor-pointer ">
           <img src={logoImage} alt="logoImage" />
         </div>
       </Link>
       {/* mobile-view-navbar */}
       <ul
-        className={`transform  ease-in-out duration-500 delay-300 ${ toggle ? "translate-x-0" : "-translate-x-full"
+        className={`transform  ease-in-out duration-500 delay-300 ${
+          toggle ? "translate-x-0" : "-translate-x-full"
         } w-3/4 bg-white absolute top-0 left-0 h-screen md:hidden flex flex-col  pt-[100px]   ${
           styles.mobile
         }`}
       >
-        <Link  to="/signup">
-          <li  className="text-[#04050C] leading-[20px] text-[16px] flex px-[24px] py-[16px]  font-medium">
+        <Link to="/signup">
+          <li className="text-[#04050C] leading-[20px] text-[16px] flex px-[24px] py-[16px]  font-medium">
             <img src={person1} alt="account" className="cursor-pointer" />
             <h1 className="pl-[10px] cursor-pointer">Create account</h1>
           </li>
@@ -72,21 +138,30 @@ const Navbar = () => {
         </Link>
 
         <Link to="/">
-          <li onClick={handleToggle}  className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
+          <li
+            onClick={handleToggle}
+            className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal "
+          >
             <AiOutlineHome size={20} />
             <h1 className="pl-[10px] cursor-pointer">Home</h1>
           </li>
         </Link>
 
-        <Link  to="/savedproduct">
-          <li onClick={handleToggle}  className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
+        <Link to="/savedproduct">
+          <li
+            onClick={handleToggle}
+            className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal "
+          >
             <img src={love} alt="cart" className="cursor-pointer" />
             <h1 className="pl-[7px] cursor-pointer">Saved hostel</h1>
           </li>
         </Link>
 
         <Link to="/cart">
-          <li onClick={handleToggle}  className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
+          <li
+            onClick={handleToggle}
+            className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal "
+          >
             <img src={cart} alt="cart" className="cursor-pointer" />
             <h1 className="pl-[10px] cursor-pointer">Interests</h1>
           </li>
@@ -95,7 +170,10 @@ const Navbar = () => {
         <li className=" flex border-b-2 mt-[10px] border-b-[#D4D5DB] mx-[15px] "></li>
 
         <Link to="/about">
-          <li onClick={handleToggle}  className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
+          <li
+            onClick={handleToggle}
+            className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal "
+          >
             <img src={aboutUs} alt="about" className="cursor-pointer" />
             <h1 className="pl-[10px] cursor-pointer">About us</h1>
           </li>
@@ -107,7 +185,10 @@ const Navbar = () => {
         </li> */}
 
         <Link to="/staff">
-          <li onClick={handleToggle}  className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
+          <li
+            onClick={handleToggle}
+            className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal "
+          >
             <img src={staffs} alt="staffs" className="cursor-pointer" />
             <h1 className="pl-[10px] cursor-pointer">Staff page</h1>
           </li>
@@ -175,21 +256,27 @@ const Navbar = () => {
                   <Link to="/">
                     <li className="text-[#54555B]  leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
                       <AiOutlineHome size={20} />
-                      <h1 className="pl-[10px] hover:text-blue-600 cursor-pointer">Home</h1>
+                      <h1 className="pl-[10px] hover:text-blue-600 cursor-pointer">
+                        Home
+                      </h1>
                     </li>
                   </Link>
 
                   <Link to="/savedproduct">
                     <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
                       <img src={love} alt="cart" className="cursor-pointer" />
-                      <h1 className="pl-[7px] cursor-pointer hover:text-blue-600">Saved hostel</h1>
+                      <h1 className="pl-[7px] cursor-pointer hover:text-blue-600">
+                        Saved hostel
+                      </h1>
                     </li>
                   </Link>
 
                   <Link to="/cart">
                     <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
                       <img src={cart} alt="cart" className="cursor-pointer" />
-                      <h1 className="pl-[10px] cursor-pointer hover:text-blue-600">Cart</h1>
+                      <h1 className="pl-[10px] cursor-pointer hover:text-blue-600">
+                        Cart
+                      </h1>
                     </li>
                   </Link>
 
@@ -202,7 +289,9 @@ const Navbar = () => {
                         alt="about"
                         className="cursor-pointer"
                       />
-                      <h1 className="pl-[10px] hover:text-blue-600 cursor-pointer">About us</h1>
+                      <h1 className="pl-[10px] hover:text-blue-600 cursor-pointer">
+                        About us
+                      </h1>
                     </li>
                   </Link>
 
@@ -222,7 +311,9 @@ const Navbar = () => {
                         alt="staffs"
                         className="cursor-pointer"
                       />
-                      <h1 className="pl-[10px] cursor-pointer hover:text-blue-600">Staff page</h1>
+                      <h1 className="pl-[10px] cursor-pointer hover:text-blue-600">
+                        Staff page
+                      </h1>
                     </li>
                   </Link>
                 </ul>

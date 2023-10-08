@@ -41,10 +41,10 @@ const ProductProvider = ({ children }) => {
         };
       });
       setProducts(products);
-      console.log("working", setProducts);
+      // console.log("working", setProducts);
       const Categories = [...new Set(products.map((item) => item.category))];
       setCategory(Categories);
-      console.log("getting categories", Categories);
+      // console.log("getting categories", Categories);
     } catch (error) {
       setLoading(false);
       console.log("not working", error);
