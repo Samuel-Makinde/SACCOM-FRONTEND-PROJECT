@@ -84,7 +84,8 @@ export default function HomeLanding({ onViewMoreClick }) {
                           {product.apartment_summary_description}
                         </p>
                         <p className="pt-[5px] text-[#54555B] text-[16px] leading-[20px] font-normal">
-                          ${product.rent_price} per year
+                          {"\u20A6"}
+                          {product.rent_price} per year
                         </p>
                       </div>
                     </div>

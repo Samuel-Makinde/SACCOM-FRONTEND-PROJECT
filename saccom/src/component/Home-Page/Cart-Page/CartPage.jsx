@@ -38,7 +38,14 @@ const CartPage = () => {
             </h4>
           ) : (
             products.map((product) => {
-              if (cart.some((item) => item.id === product.id)) {
+              // Convert the cart array to a set to remove duplicates
+              const cartSet = new Set(cart);
+
+              // Convert the set back to an array
+              const uniqueCart = Array.from(cartSet);
+
+              console.log(cart);
+              if (uniqueCart.some((item) => item.id === product.id)) {
                 return (
                   <div className="w-full h-full" key={product.id}>
                     <div className="border-b-[2px] border-b-[#D4D5DB] mt-[40px]"></div>
@@ -84,7 +91,8 @@ const CartPage = () => {
                           <div className="text-[#54555B] flex  md:mt-[5px]">
                             <RiPinDistanceLine size={20} className="mt-[5px]" />
                             <p className=" md:text-[16px] leading--[20.29px] ml-[5px] ">
-                              {product.time_in_mins_from_gate} mins walk from main gate
+                              {product.time_in_mins_from_gate} mins walk from
+                              main gate
                             </p>
                           </div>
                         </div>
