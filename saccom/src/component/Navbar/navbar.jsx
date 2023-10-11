@@ -35,7 +35,7 @@ const Navbar = () => {
     setToggle(!toggle);
   };
   return (
-    <main className="fixed w-full h-[60px] md:h-[90px] flex items-center md:grid md:grid-cols-3 md:gap-4 px-4 bg-white z-20 font-euclid">
+    <main  className="fixed w-full h-[60px] md:h-[90px] flex items-center md:grid md:grid-cols-3 md:gap-4 px-4 bg-white z-20 font-euclid">
       <div onClick={handleToggle} className="md:hidden z-10">
         {toggle ? (
           <div className="w-[32px] h-[32px] bg-[#EDEFFD] cursor-pointer flex justify-center items-center rounded-[20px] transform  ease-in-out duration-500 delay-300">
@@ -51,6 +51,10 @@ const Navbar = () => {
         </div>
       </Link>
       {/* mobile-view-navbar */}
+      <div onClick={handleToggle} className={`transform  ease-in-out duration-500 delay-300 ${ toggle ? "translate-x-0" : "-translate-x-full"
+        } w-full bg-transparent absolute top-0 left-0 h-screen md:hidden flex flex-col  pt-[100px]   ${
+          styles.mobile
+        }`}>
       <ul
         className={`transform  ease-in-out duration-500 delay-300 ${ toggle ? "translate-x-0" : "-translate-x-full"
         } w-3/4 bg-white absolute top-0 left-0 h-screen md:hidden flex flex-col  pt-[100px]   ${
@@ -113,6 +117,8 @@ const Navbar = () => {
           </li>
         </Link>
       </ul>
+      </div>
+    
       <div className="absolute flex right-2">
         <p className="w-[24px] h-[24px] flex items-center justify-center bg-[#D3D7FB] rounded-[40px] md:hidden">
           <img src={person3} alt="person" />
