@@ -47,7 +47,7 @@ const ViewMore = () => {
         </div>
 
         {/* Render products only for the active category */}
-        <div className="w-full h-full flex flex-col items-center justify-center grid grid-cols-2  sm:grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-1 place-items-center px-4">
+        <div className="w-full h-full flex flex-col items-center justify-center grid grid-cols-2  sm:grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-items-center pr-1">
           {products
             .filter((product) => product.category === activeCategory)
             .map((product) => (
@@ -70,8 +70,8 @@ const ViewMore = () => {
                   </div>
                 </div>
 
-                <div className="ml-3">
-                  <h3 className="text-[#2F3035] sm:text-[20px] font-bold font-medium leading-[25.36px] pt-[10px]">
+                <div className="pl-2">
+                  <h3 className="text-[#2F3035] sm:text-[20px] font-bold****** font-medium leading-[25.36px] pt-[10px]">
                     {product.apartment_name}
                   </h3>
                   <p className="w-[1005] h-full text-[16px] font-normal text-[#54555B] mt-[2px] leading-[20px]">
