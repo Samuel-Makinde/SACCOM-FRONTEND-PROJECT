@@ -6,6 +6,8 @@ import PropTypes from "prop-types";
 import search from "../../../../assets/HomeImageSlider/search.png";
 import Loading from "../../LoadingSpinner/loading";
 import { Link } from "react-router-dom";
+import VideoThumbnail from "react-video-thumbnail";
+
 
 // import { useState } from "react";
 
@@ -59,12 +61,30 @@ export default function HomeLanding({ onViewMoreClick }) {
                     <div key={product.id}>
                       <div className="relative">
                         <Link to={`/product/${product.id}`}>
-                          <img
+
+                          {/*BANIEX:  Replaced image tag with video tag so that the images shown will be frames of the videos  */}
+
+
+                          {/* <img
                             className="w-[302px] h-[302px] md:h-[202px] mt-[25px] rounded-[12px]"
                             src={product.apartment_sub_images[0]}
                             alt={product.apartment_name}
                             onError={(e) => console.error("Image Error:", e)}
-                          />
+                          /> */}
+                          <video
+                            className="w-[302px] h-[302px] md:h-[202px] mt-[25px] rounded-[12px]"
+                            style={{
+                              objectFit: "cover",
+                              width: "",
+                              height: "",
+                            }}
+                            src={product.apartment_video}
+                            
+                            
+                            loop
+                            muted
+                            preload="metadata"
+                          ></video>
                         </Link>
 
                         <div className="absolute bg-[#EDEFFD] flex items-center justify-center w-[32px] h-[32px] rounded-[40px] top-[16px] right-[25px] cursor-pointer">

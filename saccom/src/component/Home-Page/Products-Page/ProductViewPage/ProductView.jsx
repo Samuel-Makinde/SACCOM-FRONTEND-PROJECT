@@ -114,12 +114,12 @@ const handlePrev = () => {
   }
   return (
     <main className="w-full h-full pt-[60px] md:pt-[100px]">
-      <VideoThumbnail
+      {/* <VideoThumbnail
         videoUrl="https://res.cloudinary.com/dd1gg0wzh/video/upload/v1695685304/SACCOM_AGENCY_VID_masqu5.mp4"
         thumbnailHandler={(thumbnail) => console.log(thumbnail)}
         width={420}
         height={200}
-      />
+      /> */}
       <div className="w-full h-full font-euclid">
         {/* {warning && <div className="absolute z-50 text-[100px]">Item already in cart</div> } */}
         {/* {products.map((product, index) => { */}

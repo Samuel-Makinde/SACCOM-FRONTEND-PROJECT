@@ -55,11 +55,23 @@ const ViewMore = () => {
                 {/* Render product details */}
                 <div className="relative px-2 sm:px-0 w-[160px] h-[142px]  sm:w-[270px] sm:h-[270px] md:w-[302px] md:h-[302px] lg:w-[270px] lg-h[270px]">
                   <Link to={`/product/${product.id}`}>
-                    <img
+                    {/* <img
                       className="w-[100%] h-[100%] sm:w-[270px] sm:h-[270px] md:w-[300px] md:h-[300px] lg:w-[270px] lg:h-[270px]  mt-[30px] rounded-[12px]"
                       src={product.apartment_sub_images[0]}
                       alt={product.apartment_name}
-                    />
+                    /> */}
+                    <video
+                      className="w-[100%] h-[100%] sm:w-[270px] sm:h-[270px] md:w-[300px] md:h-[300px] lg:w-[270px] lg:h-[270px]  mt-[30px] rounded-[12px]"
+                      style={{
+                        objectFit: "cover",
+                        width: "",
+                        height: "",
+                      }}
+                      src={product.apartment_video}
+                      loop
+                      muted
+                      preload="metadata"
+                    ></video>
                   </Link>
 
                   <div
@@ -78,7 +90,8 @@ const ViewMore = () => {
                     {product.apartment_summary_description}
                   </p>
                   <p className="pt-[5px] text-[#54555B] text-[16px] leading-[20px] font-normal">
-                    ${product.rent_price} per year
+                    {"\u20A6"}
+                    {product.rent_price} per year
                   </p>
                 </div>
               </div>
