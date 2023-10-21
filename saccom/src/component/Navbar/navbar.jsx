@@ -127,19 +127,22 @@ const Navbar = () => {
           styles.mobile
         }`}
       >
-        <Link to="/signup">
+
+        {/* Commneted out login and sign up since the pages are not fully functional and we do not need them in the MVP */}
+
+        {/* <Link to="/signup">
           <li className="text-[#04050C] leading-[20px] text-[16px] flex px-[24px] py-[16px]  font-medium">
             <img src={person1} alt="account" className="cursor-pointer" />
             <h1 className="pl-[10px] cursor-pointer">Create account</h1>
           </li>
-        </Link>
+        </Link> */}
 
-        <Link to="/login">
+        {/* <Link to="/login">
           <li className="text-[#54555B] leading-[20px] text-[16px] flex  px-[24px] py-[16px] font-normal ">
             <img src={person2} alt="login" className="cursor-pointer" />
             <h1 className="pl-[10px] cursor-pointer">Log in</h1>
           </li>
-        </Link>
+        </Link> */}
 
         <Link to="/">
           <li
