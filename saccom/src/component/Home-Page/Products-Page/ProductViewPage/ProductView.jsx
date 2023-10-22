@@ -211,6 +211,7 @@ const handlePrev = () => {
                     autoPlay
                     controls
                     loop
+                    playsInline
                     muted
                     preload="metadata"
                   ></video>

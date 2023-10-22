@@ -83,6 +83,7 @@ export default function HomeLanding({ onViewMoreClick }) {
                             
                             loop
                             muted
+                            playsInline
                             preload="metadata"
                           ></video>
                         </Link>
