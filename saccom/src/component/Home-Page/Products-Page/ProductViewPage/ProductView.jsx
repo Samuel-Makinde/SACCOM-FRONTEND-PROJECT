@@ -207,7 +207,7 @@ const handlePrev = () => {
                       width: "100%",
                       height: "86vh",
                     }}
-                    src={product.apartment_video}
+                    src={product.apartment_video + "#t=0.01"}
                     autoPlay
                     controls
                     loop

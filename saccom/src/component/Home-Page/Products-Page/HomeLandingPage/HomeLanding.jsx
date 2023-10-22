@@ -61,9 +61,7 @@ export default function HomeLanding({ onViewMoreClick }) {
                     <div key={product.id}>
                       <div className="relative">
                         <Link to={`/product/${product.id}`}>
-
                           {/*BANIEX:  Replaced image tag with video tag so that the images shown will be frames of the videos  */}
-
 
                           {/* <img
                             className="w-[302px] h-[302px] md:h-[202px] mt-[25px] rounded-[12px]"
@@ -78,9 +76,7 @@ export default function HomeLanding({ onViewMoreClick }) {
                               width: "",
                               height: "",
                             }}
-                            src={product.apartment_video}
-                            
-                            
+                            src={product.apartment_video + "#t=0.001"}
                             loop
                             muted
                             playsInline
