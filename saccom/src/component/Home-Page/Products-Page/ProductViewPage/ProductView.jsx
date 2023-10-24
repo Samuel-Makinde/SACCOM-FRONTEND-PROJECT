@@ -239,7 +239,20 @@ const handlePrev = () => {
               </div>
             </div>
 
-            <main className={styles.container}>
+             
+            <main >
+              <video
+                  className="h-4/5 mt-4 md:hidden"
+                  style={{ objectFit: "cover", width: "100%", height: "40vh" }}
+                  src={product.apartment_video}
+                  controls
+                  loop
+                  autoPlay
+                  muted
+                  playsInline
+                  preload="metadata"
+                ></video>
+              
               <div className="relative md:hidden mt-0 h-[280px]">
                 <Slider ref={sliderRef} {...settings}>
                   <div className="relative w-full h-full border-none  ">
@@ -404,15 +417,15 @@ const handlePrev = () => {
                 <h3 className="text-[#2F3035] text-[24px] font-semibold leading-[30.43px] md:text-[48px] md:leading-[60.82px]">
                   Description
                 </h3>
-                <video
+                {/* <video
                   className="h-4/5 mt-4 md:hidden"
                   style={{ objectFit: "cover", width: "100%", height: "40vh" }}
                   src={product.apartment_video}
-                  autoplay
+                  autoPlay
                   controls
                   muted
                   preload="metadata"
-                ></video>
+                ></video> */}
                 <p className="text-[#85868D] font-normal text-[16px] leading-[20.29px] mt-[10px]">
                   {product.apartment_full_description}
                 </p>
