@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 import search from "../../../../assets/HomeImageSlider/search.png";
 import Loading from "../../LoadingSpinner/loading";
 import { Link } from "react-router-dom";
-import VideoThumbnail from "react-video-thumbnail";
+
 
 
 // import { useState } from "react";

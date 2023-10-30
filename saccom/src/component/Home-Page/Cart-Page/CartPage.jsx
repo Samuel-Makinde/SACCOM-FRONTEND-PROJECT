@@ -99,7 +99,8 @@ const CartPage = () => {
 
                         <div>
                           <h4 className="text-[32px] font-semibold text-[#54555B] leading-[40.52px]">
-                            ${product.rent_price}
+                            {"\u20A6"}
+                            {product.rent_price}
                           </h4>
                           <p className="text-[#54555B] text-[16px] leading-[20.29px] md:text-right">
                             Per year
