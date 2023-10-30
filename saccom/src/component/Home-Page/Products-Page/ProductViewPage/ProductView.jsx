@@ -217,22 +217,22 @@ const handlePrev = () => {
                   ></video>
                 </div>
                 <img
-                  className="hidden md:flex md:h-[254px] md:pr-[15px] "
+                  className="hidden md:flex w-full md:h-[254px] md:pr-[15px] "
                   src={product.apartment_sub_images[1]}
                   alt={product.apartment_name}
                 />
                 <img
-                  className="hidden md:flex rounded-r-[12px] md:h-[254px] "
+                  className="hidden md:flex w-full rounded-r-[12px] md:h-[254px] "
                   src={product.apartment_sub_images[2]}
                   alt={product.apartment_name}
                 />
                 <img
-                  className="hidden md:flex md:h-[254px] md:pr-[15px] md: mt-[10px] "
+                  className="hidden md:flex md:h-[254px] w-full md:pr-[15px] md: mt-[10px] "
                   src={product.apartment_sub_images[3]}
                   alt={product.apartment_name}
                 />
                 <img
-                  className="hidden md:flex  rounded-r-[12px] md:h-[254px] md:mt-[10px]"
+                  className="hidden md:flex w-full  rounded-r-[12px] md:h-[254px] md:mt-[10px]"
                   src={product.apartment_sub_images[4]}
                   alt={product.apartment_name}
                 />
@@ -293,7 +293,7 @@ const handlePrev = () => {
                 </Slider>
                 <div></div>
               </div>
-              <div className="md:hidden absolute top-[380px] left-[35%] transform -translate-x-1/2 -translate-y-1/2 z-10">
+               <div className="md:hidden absolute top-[670px] left-[35%] transform -translate-x-1/2 -translate-y-1/2 z-10">
                 <div
                   className="w-[34px] h-[34px] bg-[#EDEFFD] rounded-[40px] flex items-center justify-center cursor-pointer"
                   onClick={handlePrev}
@@ -301,7 +301,7 @@ const handlePrev = () => {
                   <IoIosArrowBack size={26} className="text-blue-600" />
                 </div>
               </div>
-              <div className="md:hidden absolute top-[380px] right-[35%] transform -translate-x-1/2 -translate-y-1/2 z-10">
+              <div className="md:hidden absolute top-[670px] right-[35%] transform -translate-x-1/2 -translate-y-1/2 z-10">
                 <div
                   className="w-[34px] h-[34px] bg-[#EDEFFD] rounded-[40px] flex items-center justify-center cursor-pointer"
                   onClick={handleNext}
