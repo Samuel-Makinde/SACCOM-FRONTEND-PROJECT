@@ -48,7 +48,7 @@ export default function SignUp() {
   const onSubmit = (data) => {
     console.log(data);
     axios
-      .post(`http://localhost:4000/api/v1/register`, {
+      .post(`https://saccom-backend.onrender.com/api/v1/register`, {
         firstName: data.firstName,
         lastName: data.lastName,
         email: data.email,
