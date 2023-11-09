@@ -4,28 +4,39 @@
 
 
 .container {
-    min-width: 100%;
+    width: 100%;
     /* max-width: 100%; */
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
+    /* overflow-y: hidden; */
     /* align-items: center; */
 }
 
-.imageContainer{
+.imageContainer {
     width: 96%;
     height: 200px;
     margin-top: 27px;
     padding-left: 10px;
 }
 
-@media screen and (min-width:768px){
-    
-    .imageContainer{
-        width: 100%;
-        height: 100vh;
+.productCarousel {
+    max-width: 100%;
+    /* max-width: 100%; */
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    /* align-items: center; */
+}
+
+@media screen and (min-width:768px) {
+
+    .imageContainer {
+        width: 100vw;
+        height: 90vh;
         padding-left: 0px;
         margin-top: 0px;
     }
-    
+
 }

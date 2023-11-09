@@ -15,7 +15,7 @@ const ProductProvider = ({ children }) => {
   const [savedProduct, setSavedProduct] = useState([]);
 
   const productUrl =
-    "https://sheet.best/api/sheets/9e3e7603-7b2f-40c9-82fc-3d5e7f9dd9dd";
+    "https://sheet.best/api/sheets/aec8256e-339e-4d96-acff-c6da0c65e0b0";
 
   const FetchApi = useCallback(async () => {
     setLoading(true);
@@ -41,10 +41,10 @@ const ProductProvider = ({ children }) => {
         };
       });
       setProducts(products);
-      console.log("working", setProducts);
+      // console.log("working", setProducts);
       const Categories = [...new Set(products.map((item) => item.category))];
       setCategory(Categories);
-      console.log("getting categories", Categories);
+      // console.log("getting categories", Categories);
     } catch (error) {
       setLoading(false);
       console.log("not working", error);
@@ -70,9 +70,18 @@ const ProductProvider = ({ children }) => {
   };
 
   const addToCart = (item) => {
+    // Check if the item already exists in the cart based on its id
+
+    const itemExists = cart.some((cartItem) => cartItem.id === item.id);
+    if(!itemExists){
+      // If the item doesn't exist in the cart, add it
     setCart([...cart, item]);
     console.log(item, "item added");
-  };
+    } else{
+      // If the item exists, don't add it
+    console.log(item, "item already exists in cart");
+    }
+  }
 
   const removeFromCart = (itemId) => {
     setCart((prev) => prev.filter((item) => item.id !== itemId));

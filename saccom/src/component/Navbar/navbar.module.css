@@ -11,13 +11,13 @@
     }
 } */
 
-.heading{
+.heading {
     font-family: 'Aclonica', sans-serif;
     font-style: normal;
     font-weight: 400;
 }
 
-.mobile{
+.mobile {
     border-top: 1px solid #F2F5F9;
-    box-shadow: 13px 15px 18px rgba(86, 86, 86, 0.2);
+    /* box-shadow: 13px 15px 18px rgba(86, 86, 86, 0.2); */
 }

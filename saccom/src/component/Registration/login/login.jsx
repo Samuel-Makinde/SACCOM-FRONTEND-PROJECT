@@ -7,7 +7,7 @@ import "./login.css";
 import { AiOutlineMail } from "react-icons/ai";
 import { BiKey } from "react-icons/bi";
 // import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // import roomImage from './Image.png';
 // import Main from '../Main-Page/Main';
@@ -25,6 +25,7 @@ const formSchema = yup.object().shape({
 
 function Login() {
   // const [isAuthenticated, setIsAuthenticated] = useState("true");
+  const navigate = useNavigate()
   const {
     register,
     // handleSubmit,
@@ -43,7 +44,7 @@ function Login() {
   };
   return (
     <main className="w-full h-full md:h-[726px]  bg-[#FFFFFF] px-4 font-euclid">
-      <h1 className="text-[#2F3035] text-[32px] font-bold mt-[1px] md:ml-[56px] header-hi">
+      <h1 onClick={()=> navigate('/')}  className="text-[#2F3035] text-[32px] font-bold mt-[1px] md:ml-[56px] header-hi">
         SACCOM
       </h1>
       <div className=" text-black w-full h-full px-4   md:flex md:justify-center md:items-center ">
@@ -65,7 +66,7 @@ function Login() {
               </label>
               <AiOutlineMail
                 size={24}
-                className="absolute top-[20px] left-[10px] text-[#85868D]"
+                className="absolute top-[18px] left-[10px] text-[#85868D]"
               />
               <input
                 type="email"
@@ -73,11 +74,11 @@ function Login() {
                 name="email"
                 {...register("email")}
                 placeholder="Email@address.com"
-                className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px]"
+                className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px] outline-none"
                 style={{ paddingLeft: "50px" }}
               ></input>
             </div>
-            <div className="errorContainer">
+            <div className="errorContainer ">
               <small
                 className="errorMsg"
                 style={{ visibility: errors.email ? "visible" : "hidden" }}
@@ -85,7 +86,7 @@ function Login() {
                 {errors.email?.message}
               </small>
             </div>
-            <div className="relative w-full flex flex-col-reverse mt-[30px] md:mt-[50px] ">
+            <div className="relative w-full flex flex-col-reverse mt-[15px] md:mt-[50px] ">
               <label
                 className="absolute top-[4px] left-[50px] text-[#04050C] md:text-[12px] leading-[15.22px]"
                 htmlFor="password"
@@ -94,7 +95,7 @@ function Login() {
               </label>
               <BiKey
                 size={24}
-                className="absolute top-[20px] left-[10px] text-[#85868D]"
+                className="absolute top-[16px] left-[10px] text-[#85868D]"
               />
               <input
                 type={passwordVisibile ? "text" : "password"}
@@ -102,7 +103,7 @@ function Login() {
                 name="password"
                 {...register("password")}
                 placeholder="************"
-                className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px]"
+                className="w-full h-[60px] border-2  border-[#B3B4BB] rounded-[5px] outline-none"
                 style={{ paddingLeft: "50px" }}
               ></input>
               <button
@@ -120,12 +121,19 @@ function Login() {
               >
                 {errors.password?.message}{" "}
               </small>
-              <p className="text-[#4D5DED] text-[12px] leading-[15.22px] mt-[5px] cursor-pointer">
+              <div>
+              <span onClick={()=> navigate('/')} className="text-[#4D5DED] text-[12px] leading-[15.22px] mt-[5px] cursor-pointer">
+                go back 
+              </span>
+              <span className="text-[#4D5DED] px-1">|</span>
+              <span className=" text-[#4D5DED] text-[12px] leading-[15.22px] mt-[5px] cursor-pointer">
                 Forgot Password?
-              </p>
+              </span>
+              </div>
+              
             </div>
 
-            <div className="bg-[#4D5DED] text-center text-[16px] md:text-[20px] rounded-[12px] mt-[60px]  px-[20px] py-[20px] w-full h-[60px]  text-white">
+            <div className="bg-[#4D5DED] text-center text-[16px] md:text-[20px] rounded-[12px] mt-[30px]  px-[20px] py-[20px] w-full h-[60px]  text-white">
               <button type="submit">Log in</button>
             </div>
             <p className="text-[#54555B] leading-[15.22px] text-[12px] mt-[20px]">

@@ -4,6 +4,24 @@ import { AiOutlineInfoCircle, AiOutlineArrowRight } from "react-icons/ai";
 
 const CartPage = () => {
   const { products, cart, removeFromCart } = useGlobalContext();
+
+  // to add whatsapp id to the proceed to pay message
+  const createWhatsAppMessage = () => {
+    const productIds = cart.map((item) => item.id);
+    const message = `Hi SACCOM, I'm interested in the following apartments with ID:\n${productIds.join(
+      ", "
+    )}`;
+    return message;
+  };
+
+  const phoneNumber = "+2349061814601"; // Replace with the recipient's WhatsApp number
+
+  // Construct the WhatsApp message link
+  const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+    createWhatsAppMessage()
+  )}`;
+
+
   return (
     <main className="w-full h-full px-4 md:px-10 pt-[70px] md:pt-[100px]">
       <div className="w-full h-full font-euclid">
@@ -20,7 +38,14 @@ const CartPage = () => {
             </h4>
           ) : (
             products.map((product) => {
-              if (cart.some((item) => item.id === product.id)) {
+              // Convert the cart array to a set to remove duplicates
+              const cartSet = new Set(cart);
+
+              // Convert the set back to an array
+              const uniqueCart = Array.from(cartSet);
+
+              console.log(cart);
+              if (uniqueCart.some((item) => item.id === product.id)) {
                 return (
                   <div className="w-full h-full" key={product.id}>
                     <div className="border-b-[2px] border-b-[#D4D5DB] mt-[40px]"></div>
@@ -66,14 +91,16 @@ const CartPage = () => {
                           <div className="text-[#54555B] flex  md:mt-[5px]">
                             <RiPinDistanceLine size={20} className="mt-[5px]" />
                             <p className=" md:text-[16px] leading--[20.29px] ml-[5px] ">
-                              30 mins walk from main gate
+                              {product.time_in_mins_from_gate} mins walk from
+                              main gate
                             </p>
                           </div>
                         </div>
 
                         <div>
                           <h4 className="text-[32px] font-semibold text-[#54555B] leading-[40.52px]">
-                            ${product.rent_price}
+                            {"\u20A6"}
+                            {product.rent_price}
                           </h4>
                           <p className="text-[#54555B] text-[16px] leading-[20.29px] md:text-right">
                             Per year
@@ -151,12 +178,14 @@ const CartPage = () => {
               </div>
             </div>
 
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer">
             <div className="w-full h-[50px] flex justify-center  mt-[80px] ">
               <button className="w-[328px] flex justify-center  bg-[#4D5DED] text-[#FFFFFF] text-[20px] font-medium p-[8px] rounded-[12px] ">
-                <p> Proceed to pay </p>
+                <p> Proceed to make appointment </p>
                 <AiOutlineArrowRight size={24} className="mt-[5px] ml-[10px]" />
               </button>
             </div>
+            </a>
           </div>
         </div>
       </div>

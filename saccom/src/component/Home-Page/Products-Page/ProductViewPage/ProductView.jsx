@@ -3,20 +3,67 @@ import { RiPinDistanceLine } from "react-icons/ri";
 import { BsShare } from "react-icons/bs";
 import { BiBookmark } from "react-icons/bi";
 import { AiOutlineInfoCircle } from "react-icons/ai";
-import { IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import PropTypes from "prop-types";
 import { useWindowSize } from "react-use";
 import { useParams, useNavigate } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+// import Slider from "react-slick";
+import styles from "../../ImageSlider/imageSlider.module.css";
+import { useRef } from "react";
+
+
+
+
 
 const ProductView = ({ title, url }) => {
-  const { products, addToCart, addToSave } = useGlobalContext();
+  // Baniex: Added "cart", "removeFromCart" to be destructured from the global context
+  // Baniex: in order to create "add to interest" and "remove from interests" dynamic
+  const { products, addToCart, removeFromCart, addToSave, cart } = useGlobalContext();
   const { width } = useWindowSize();
 
   const { productId } = useParams();
   console.log("this is the product Id", productId);
 
   // const parsedProductId = parseInt(productId);
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 7000,
+    cssEase: "linear",
+    swipe: true, 
+  };
 
+  const sliderRef = useRef(null); // Create a ref for the slider component
+
+// Next button click handler
+const handleNext = () => {
+  if (sliderRef.current) {
+    sliderRef.current.slickNext(); // Move to the next slide
+  }
+};
+
+// Previous button click handler
+const handlePrev = () => {
+  if (sliderRef.current) {
+    sliderRef.current.slickPrev(); // Move to the previous slide
+  }
+};
+
+
+
+
+
+
+
+
+  // to find the particular product
   const product = products.find(
     (product) => product.id === parseInt(productId)
   );
@@ -71,9 +118,10 @@ const ProductView = ({ title, url }) => {
         {/* {warning && <div className="absolute z-50 text-[100px]">Item already in cart</div> } */}
         {/* {products.map((product, index) => { */}
         {/* if (index === 0) { */}
-        <div key={product.id} className="w-full h-full  md:px-10">
+        <div key={product.id} className="w-full h-full md:px-10">
+          {/* Flex column reverse occuring here */}
           <div className="w-full h-full flex flex-col-reverse md:flex-none md:flex-col">
-            <div className="w-full h-full px-4 md:px-0">
+            <div className="w-full h-full px-4 py-0  md:px-0 mt-[30px] md:mt-0">
               <h1 className="text-[24px] font-semibold leading-[30.43px] md:text-[48px] text-[#2F3035] md:leading-[60px] ">
                 {product.apartment_name}
               </h1>
@@ -87,7 +135,8 @@ const ProductView = ({ title, url }) => {
                 </p>
               </div>
             </div>
-            <div className="w-full h-full flex flex-col-reverse  md:flex-row md:justify-between">
+            {/* <div className="w-full h-full flex flex-col-reverse  md:flex-row md:justify-between">
+              two
               <div className="hidden md:flex text-[#54555B]  md:mt-[5px]">
                 <RiPinDistanceLine size={20} className="mt-[5px]" />
                 <p className="text-[16px] leading--[20.29px] ml-[5px] ">
@@ -95,7 +144,7 @@ const ProductView = ({ title, url }) => {
                 </p>
               </div>
 
-              <div className="z-10 absolute md:relative w-full h-full md:w-[200px] top-[80px]  md:top-0 md:right-0 text-[#4D5DED] md:text-[#54555B] text-[16px] ">
+              <div className="z-10 absolute md:relative w-full h-full md:w-[200px] top-[80px] mt-5 px-3   md:top-0 md:right-0 text-[#4D5DED] md:text-[#54555B] text-[16px] ">
                 <div className="w-full flex justify-between px-4 md:px-0 ">
                   <div
                     className="w-[24px] h-[24px] cursor-pointer md:hidden bg-[#EDEFFD] rounded-[40px] flex items-center justify-center"
@@ -138,39 +187,224 @@ const ProductView = ({ title, url }) => {
                   </div>
                 </div>
               </div>
-            </div>
-
-            <div className="relative w-full h-[236px] md:h-[524px] md:grid grid-cols-4 grid-rows-2 md:mt-[30px]">
-              <img
+            </div> */}
+            <div className="hidden md:block">
+              three
+              <div className="relative w-full h-[236px]   md:h-[524px] md:grid grid-cols-4 grid-rows-2 md:mt-[30px]">
+                {/* <img
                 className=" w-full h-[236px] md:h-full md:row-span-2 md:col-span-2 md:rounded-l-[12px] md:pr-[15px]"
                 src={product.apartment_sub_images[0]}
                 alt={product.apartment_name}
-              />
-              <img
-                className="hidden md:flex md:h-[254px] md:pr-[15px] "
-                src={product.apartment_sub_images[1]}
-                alt={product.apartment_name}
-              />
-              <img
-                className="hidden md:flex rounded-r-[12px] md:h-[254px] "
-                src={product.apartment_sub_images[2]}
-                alt={product.apartment_name}
-              />
-              <img
-                className="hidden md:flex md:h-[254px] md:pr-[15px] md: mt-[10px] "
-                src={product.apartment_sub_images[3]}
-                alt={product.apartment_name}
-              />
-              <img
-                className="hidden md:flex  rounded-r-[12px] md:h-[254px] md:mt-[10px]"
-                src={product.apartment_sub_images[4]}
-                alt={product.apartment_name}
-              />
+              /> */}
+                <div className=" w-full h-[236px] md:h-full md:block hidden md:row-span-2 md:col-span-2 md:rounded-l-[12px] md:pr-[15px]">
+                  <video
+                    className=" w-full h-[236px] md:h-full md:row-span-2 md:col-span-2 md:rounded-l-[12px] md:pr-[15px]"
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "86vh",
+                    }}
+                    src={product.apartment_video + "#t=0.01"}
+                    autoPlay
+                    controls
+                    loop
+                    playsInline
+                    muted
+                    preload="metadata"
+                  ></video>
+                </div>
+                <img
+                  className="hidden md:flex w-full md:h-[254px] md:pr-[15px] "
+                  src={product.apartment_sub_images[1]}
+                  alt={product.apartment_name}
+                />
+                <img
+                  className="hidden md:flex w-full rounded-r-[12px] md:h-[254px] "
+                  src={product.apartment_sub_images[2]}
+                  alt={product.apartment_name}
+                />
+                <img
+                  className="hidden md:flex md:h-[254px] w-full md:pr-[15px] md: mt-[10px] "
+                  src={product.apartment_sub_images[3]}
+                  alt={product.apartment_name}
+                />
+                <img
+                  className="hidden md:flex w-full  rounded-r-[12px] md:h-[254px] md:mt-[10px]"
+                  src={product.apartment_sub_images[4]}
+                  alt={product.apartment_name}
+                />
+              </div>
             </div>
+
+            {product.apartment_video_available === "TRUE" ? (<main className={styles.container}>
+              <div className="mb-[70px]">
+                <div className="relative md:hidden mt-0 h-[280px]">
+                  <Slider ref={sliderRef} {...settings}>
+                    <div className="relative w-full h-full border-none  ">
+                      <img
+                        className={` h-[300px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+                        src={product.apartment_sub_images[0]}
+                        alt="hotel"
+                      />
+                    </div>
+                    <div className="w-full h-full border-none">
+                      <img
+                        className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+                        src={product.apartment_sub_images[1]}
+                        alt="hotel"
+                      />
+                    </div>
+                    <div className="w-full h-full border-none">
+                      <img
+                        className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+                        src={product.apartment_sub_images[2]}
+                        alt="hotel"
+                      />
+                    </div>
+                    <div className="w-full h-full border-none">
+                      <img
+                        className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+                        src={product.apartment_sub_images[3]}
+                        alt="hotel"
+                      />
+                    </div>
+                    <div className="w-full h-full border-none">
+                      <img
+                        className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+                        src={product.apartment_sub_images[4]}
+                        alt="hotel"
+                      />
+                    </div>
+                  </Slider>
+                  <div></div>
+                </div>
+                <div className="md:hidden absolute top-[410px] left-[35%] transform -translate-x-1/2 -translate-y-1/2 z-10">
+                  <div
+                    className="w-[34px] h-[34px] bg-[#EDEFFD] rounded-[40px] flex items-center justify-center cursor-pointer"
+                    onClick={handlePrev}
+                  >
+                    <IoIosArrowBack size={26} className="text-blue-600" />
+                  </div>
+                </div>
+                <div className="md:hidden absolute top-[410px] right-[35%] transform -translate-x-1/2 -translate-y-1/2 z-10 ">
+                  <div
+                    className="w-[34px] h-[34px] bg-[#EDEFFD] rounded-[40px] flex items-center justify-center cursor-pointer"
+                    onClick={handleNext}
+                  >
+                    <IoIosArrowForward size={26} className="text-blue-600" />
+                  </div>
+<<<<<<< HEAD
+                  <div className="w-full h-full border-none">
+                    <img
+                      className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+                      src={product.apartment_sub_images[2]}
+                      alt="hotel"
+                    />
+                  </div>
+                  <div className="w-full h-full border-none">
+                    <img
+                      className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+                      src={product.apartment_sub_images[3]}
+                      alt="hotel"
+                    />
+                  </div>
+                  <div className="w-full h-full border-none">
+                    <img
+                      className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+                      src={product.apartment_sub_images[4]}
+                      alt="hotel"
+                    />
+                  </div>
+                </Slider>
+                <div></div>
+              </div>
+               <div className="md:hidden absolute top-[670px] left-[35%] transform -translate-x-1/2 -translate-y-1/2 z-10">
+                <div
+                  className="w-[34px] h-[34px] bg-[#EDEFFD] rounded-[40px] flex items-center justify-center cursor-pointer"
+                  onClick={handlePrev}
+                >
+                  <IoIosArrowBack size={26} className="text-blue-600" />
+                </div>
+              </div>
+              <div className="md:hidden absolute top-[670px] right-[35%] transform -translate-x-1/2 -translate-y-1/2 z-10">
+                <div
+                  className="w-[34px] h-[34px] bg-[#EDEFFD] rounded-[40px] flex items-center justify-center cursor-pointer"
+                  onClick={handleNext}
+                >
+                  <IoIosArrowForward size={26} className="text-blue-600" />
+=======
+                </div>
+              </div>
+            </main> ) : (<div></div>)}
+
+             {/* <main className={styles.container}>
+              <div className="mb-[70px]">
+                <div className="relative md:hidden mt-0 h-[280px]">
+                  <Slider ref={sliderRef} {...settings}>
+                    <div className="relative w-full h-full border-none  ">
+                      <img
+                        className={` h-[300px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+                        src={product.apartment_sub_images[0]}
+                        alt="hotel"
+                      />
+                    </div>
+                    <div className="w-full h-full border-none">
+                      <img
+                        className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+                        src={product.apartment_sub_images[1]}
+                        alt="hotel"
+                      />
+                    </div>
+                    <div className="w-full h-full border-none">
+                      <img
+                        className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+                        src={product.apartment_sub_images[2]}
+                        alt="hotel"
+                      />
+                    </div>
+                    <div className="w-full h-full border-none">
+                      <img
+                        className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+                        src={product.apartment_sub_images[3]}
+                        alt="hotel"
+                      />
+                    </div>
+                    <div className="w-full h-full border-none">
+                      <img
+                        className={` h-[280px] md:rounded-none md:w-full  border-none ${styles.imageContainer}`}
+                        src={product.apartment_sub_images[4]}
+                        alt="hotel"
+                      />
+                    </div>
+                  </Slider>
+                  <div></div>
+                </div>
+                <div className="md:hidden absolute top-[410px] left-[35%] transform -translate-x-1/2 -translate-y-1/2 z-10">
+                  <div
+                    className="w-[34px] h-[34px] bg-[#EDEFFD] rounded-[40px] flex items-center justify-center cursor-pointer"
+                    onClick={handlePrev}
+                  >
+                    <IoIosArrowBack size={26} className="text-blue-600" />
+                  </div>
+                </div>
+                <div className="md:hidden absolute top-[410px] right-[35%] transform -translate-x-1/2 -translate-y-1/2 z-10 ">
+                  <div
+                    className="w-[34px] h-[34px] bg-[#EDEFFD] rounded-[40px] flex items-center justify-center cursor-pointer"
+                    onClick={handleNext}
+                  >
+                    <IoIosArrowForward size={26} className="text-blue-600" />
+                  </div>
+>>>>>>> 649e605bb986be77a174cd4b33f8f83a1eb8a1eb
+                </div>
+              </div>
+            </main>  */}
           </div>
+          {/* BANIEX TESTING /}
+
+
 
           {/* To get accomodation type, price and add to cart*/}
-          <div className="w-full h-full mt-[20px] px-4 md:px-0 ">
+          <div className="w-full h-full mt-[20px] px-4 md:px-0  ">
             <div className="w-full h-full md:flex justify-between">
               <div className="flex flex-wrap ">
                 {product.appartment_attributes.map((info, index) => (
@@ -190,7 +424,9 @@ const ProductView = ({ title, url }) => {
               <div className="hidden md:flex md:flex-col md:w-[450px] h-full">
                 <div className="w-full h-full flex flex-col justify-start text-right">
                   <h2 className="text-[32px] font-semibold text-[#54555B] leading-[40.52px]">
-                    ${product.rent_price}
+                    {"\u20A6"}
+                    {product.rent_price}
+                    
                   </h2>
                   <p className="text-[#54555B] text-[16px] leading-[20.29px]">
                     Per year
@@ -202,7 +438,7 @@ const ProductView = ({ title, url }) => {
                     onClick={() => addToCart(product)}
                     className="bg-[#4D5DED]  w-[328px] p-[8px] rounded-[12px] text-white"
                   >
-                    Add to inspect cart
+                    Add to Interests
                   </button>
                 </div>
                 <div className="w-full flex">
@@ -223,24 +459,43 @@ const ProductView = ({ title, url }) => {
                 <div className="w-full h-full  mt-[20px] flex  justify-between">
                   <div className="w-[200px] h-full flex flex-col">
                     <h2 className="text-[24px] font-semibold  text-[#54555B] md:leading-[30.43px]">
-                      ${product.rent_price}
+                      {"\u20A6"}
+                      {product.rent_price}
+                      
                     </h2>
                     <p className="text-[#54555B] text-[16px] leading-[20.29px]">
                       Per year
                     </p>
                   </div>
 
-                  <div className="w-[150px] h-full bg-[#4D5DED] rounded-[12px] text-white ">
-                    <button
+                  <div className="w-[150px] h-full bg-[#4D5DED] rounded-[12px] text-white text-center">
+                    {/* <button
                       onClick={() => addToCart(product)}
                       className="p-[8px] "
                     >
-                      Add to inspect cart
-                    </button>
+                      add to interests
+                    </button> */}
+                    {cart.some((cartItem) => cartItem.id === product.id) ? (
+                      <button
+                        // onClick={() => addToCart(product)}
+                        className="p-[8px] "
+                        onClick={() => removeFromCart(product.id)}
+                      >
+                        Remove from interests
+                      </button>
+                    ) : (
+                      <button
+                        onClick={() => addToCart(product)}
+                        className="p-[8px] "
+                      >
+                        add to interests
+                      </button>
+                    )}
                   </div>
                 </div>
                 <div className="w-full flex mt-[20px]">
-                  <AiOutlineInfoCircle className="mt-[4px] mr-[4px] text-[#1B67FB]" />
+                  {/* Changed the margin top to 1px so the texts can align properly */}
+                  <AiOutlineInfoCircle className="mt-[1px] mr-[4px] text-[#1B67FB]" />
                   <p className="text-[#85868D]  text-[12px] leading-[20.29px] text-right">
                     {" "}
                     One time payment for all inspected properties in your cart.
@@ -252,6 +507,15 @@ const ProductView = ({ title, url }) => {
                 <h3 className="text-[#2F3035] text-[24px] font-semibold leading-[30.43px] md:text-[48px] md:leading-[60.82px]">
                   Description
                 </h3>
+                <video
+                  className="h-4/5 mt-4 md:hidden"
+                  style={{ objectFit: "cover", width: "100%", height: "40vh" }}
+                  src={product.apartment_video}
+                  autoPlay
+                  controls
+                  muted
+                  preload="metadata"
+                ></video>
                 <p className="text-[#85868D] font-normal text-[16px] leading-[20.29px] mt-[10px]">
                   {product.apartment_full_description}
                 </p>

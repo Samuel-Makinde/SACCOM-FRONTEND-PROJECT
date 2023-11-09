@@ -10,10 +10,12 @@
     }
 }
 
-.header-hi {
+/* .header-hi {
+    font-family: 'Aclonica', sans-serif;
+} */
+.header{
     font-family: 'Aclonica', sans-serif;
 }
-
 
 .errorContainer {
     height: 1.5rem;
@@ -27,5 +29,3 @@
     font-size: 14px;
     font-weight: 300;
 }
-
-
